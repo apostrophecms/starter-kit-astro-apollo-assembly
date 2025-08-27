@@ -14,22 +14,41 @@ export default defineConfig({
   adapter: node({
     mode: 'standalone'
   }),
-  integrations: [apostrophe({
-    aposHost: 'http://dashboard.localhost:3000',
-    widgetsMapping: './src/widgets',
-    templatesMapping: './src/templates',
-    includeResponseHeaders: [
-      'content-security-policy',
-      'strict-transport-security',
-      'x-frame-options',
-      'referrer-policy',
-      'cache-control'
-    ],
-    excludeRequestHeaders: [
-      // For hosting on multiple servers, block the host header
-      // 'host'
-    ]
-  })],
+  integrations: [
+    // TODO: aposHost must be dynamic
+    apostrophe({
+      aposHost: 'http://site1.localhost:3000',
+      widgetsMapping: './src/widgets',
+      templatesMapping: './src/templates',
+      includeResponseHeaders: [
+        'content-security-policy',
+        'strict-transport-security',
+        'x-frame-options',
+        'referrer-policy',
+        'cache-control'
+      ],
+      excludeRequestHeaders: [
+        // For hosting on multiple servers, block the host header
+        // 'host'
+      ]
+    }),
+    apostrophe({
+      aposHost: 'http://site2.localhost:3000',
+      widgetsMapping: './src/widgets',
+      templatesMapping: './src/templates',
+      includeResponseHeaders: [
+        'content-security-policy',
+        'strict-transport-security',
+        'x-frame-options',
+        'referrer-policy',
+        'cache-control'
+      ],
+      excludeRequestHeaders: [
+        // For hosting on multiple servers, block the host header
+        // 'host'
+      ]
+    }),
+  ],
   vite: {
     css: {
       preprocessorOptions: {
