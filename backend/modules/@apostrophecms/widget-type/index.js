@@ -1,5 +1,5 @@
 export default {
   options: {
-    //preview: false
+    // preview: false
   }
 };
