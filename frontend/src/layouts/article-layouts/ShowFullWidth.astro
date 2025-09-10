@@ -43,7 +43,7 @@ const heroImage = article?._heroImage?.[0];
   )}
   <div class="section">
     <div class="container">
-      <h1 class="title is-1 mb-6">{article.title}</h1>
+      <h1 class="h1 mb-6">{article.title}</h1>
       <div class="columns">
         <div class="column is-8">
           <div class="content">
@@ -51,7 +51,7 @@ const heroImage = article?._heroImage?.[0];
           </div>
         </div>
         <div class="column is-4">
-          <h4 class="title is-4">About the Author{authorCount > 1 && 's'}</h4>
+          <h4 class="h4">About the Author{authorCount > 1 && 's'}</h4>
           <div class="box sticky-top">
             <div class="media mb-4">
               {showAuthorAvatar && primaryAuthor?.profileImage && (
@@ -96,7 +96,7 @@ const heroImage = article?._heroImage?.[0];
             <!-- Additional Authors if they exist -->
             {authorCount > 1 && (
               <div class="mt-4">
-                <h5 class="title is-5">Additional Contributors</h5>
+                <h5 class="h5">Additional Contributors</h5>
                 <div class="additional-author-content">
                   {authors.slice(1).map((author) => (
                     <div class="mb-4">
@@ -116,7 +116,7 @@ const heroImage = article?._heroImage?.[0];
             )}
             {primaryAuthor._articles?.length > 0 && (
               <div class="related-articles mt-5">
-                <h4 class="title is-5">Other Articles by {primaryAuthor.title}</h4>
+                <h4 class="h4">Other Articles by {primaryAuthor.title}</h4>
                 <div class="menu">
                   {primaryAuthor._articles.map(article => (
                     <ul>

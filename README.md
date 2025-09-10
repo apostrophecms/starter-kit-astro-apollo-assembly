@@ -297,6 +297,14 @@ APOS_AZURE_API_SECRET=your_azure_api_key
 
 The template will automatically enable the appropriate translation modules and configure the provider based on which API key you provide. If no translation API keys are set, only the manual import/export translation module will be available.
 
+Before starting the server, please build the assets using the command below;
+
+```bash
+cd backend && APOS_DEV=1 node app @apostrophecms/asset:build`
+```
+
+It will make automatic translation components visible by building additional components.
+
 [Learn more about Automatic Translation →](https://apostrophecms.com/extensions/automatic-translation)
 
 ---
@@ -339,6 +347,14 @@ OPENAI_API_KEY=your_openai_api_key
 ```
 
 The template will automatically enable the SEO Assistant modules and configure the OpenAI provider when this environment variable is set.
+
+Before starting the server, please build the assets using the command below;
+
+```bash
+cd backend && APOS_DEV=1 node app @apostrophecms/asset:build`
+```
+
+It will make automatic translation components visible by building additional components.
 
 [Learn more about SEO Assistant →](https://apostrophecms.com/extensions/seo-assistant)
 
@@ -610,6 +626,7 @@ Here’s an example of how to customize some of Bulma's common variables. These 
 For a comprehensive list of all customizable variables, refer to the [Bulma documentation](https://bulma.io/documentation/customize/list-of-sass-variables/) on variables. This resource provides details on all available options for customization, including advanced options for responsive breakpoints, spacing, and more.
 
 ### Notes
+
 - **Order matters**: Ensure your variable overrides are declared before importing Bulma to avoid conflicts.
 - **SASS compatibility**: This setup uses the modern SASS syntax with @use and @forward. If you are unfamiliar with these concepts, refer to the SASS documentation for more information.
 - **Theme consistency**: To maintain a cohesive design, consider defining your core color palette and typography styles at the beginning of your project.
@@ -738,4 +755,3 @@ Pro modules require a valid ApostropheCMS Pro license. [Contact our sales team](
 ---
 
 *Built with ❤️ by the ApostropheCMS team. [Star us on GitHub](https://github.com/apostrophecms) if this helps your project!*
-

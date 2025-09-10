@@ -24,17 +24,12 @@ const platformIcons = {
 // Get theme-based classes
 const footerClasses = [
   'footer-modern',
-  footer.footerBackgroundColor
-    ? `has-background-${footer.footerBackgroundColor}`
-    : '',
-  footer.footerTextColor ? `has-text-${footer.footerTextColor}` : '',
   footer.footerLayout ? `layout-${footer.footerLayout}` : 'layout-grid'
 ]
   .filter(Boolean)
   .join(' ');
 
 const linkClasses = [
-  `has-text-${footer.footerLinkColor || 'grey-light'}`,
   'hover-fade'
 ].join(' ');
 
