@@ -26,10 +26,7 @@ export default {
     site: {
       options: {
         themes,
-        baseUrlDomains: {
-          ...baseUrlDomains
-          // local: baseUrlDomains.local.replace('4321', '3000')
-        }
+        baseUrlDomains
       }
     },
     'site-page': {},
