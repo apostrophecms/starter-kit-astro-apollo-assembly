@@ -64,8 +64,6 @@ const getTranslationAndSeoModules = () => {
 export default async function (site) {
   const config = {
     root: import.meta,
-    // TODO: remove baseUrl
-    // baseUrl: process.env.APOS_BASE_URL || 'http://localhost:4321',
     // Theme name is globally available as apos.options.theme
     theme: site.theme,
     nestedModuleSubdirs: true,
@@ -155,7 +153,9 @@ export default async function (site) {
 
       '@apostrophecms-pro/document-versions': {},
       '@apostrophecms-pro/doc-template-library': {},
-      '@apostrophecms-pro/palette': {}
+      '@apostrophecms-pro/palette': {},
+
+      websocket: {}
     }
   };
 
