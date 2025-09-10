@@ -10,7 +10,7 @@ export default await multisite({
 
   // Change to a fallback prefix more appropriate so you can have multiple unrelated
   // multisite projects
-  shortNamePrefix: process.env.SHORTNAME_PREFIX || 'apollo-pro-assembly-',
+  shortNamePrefix: process.env.SHORTNAME_PREFIX || 'apollo-assembly-',
 
   // MongoDB URL for database connection. If you have multiple physical
   // servers then you MUST configure this to a SHARED server (which
