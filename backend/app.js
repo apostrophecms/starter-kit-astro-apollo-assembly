@@ -35,8 +35,6 @@ export default await multisite({
   // after a zero-downtime reload completes. Defaults to 60000 (1 minute).
   oldInstanceGracePeriod: 60000,
 
-  websocket: true,
-
   sites,
   dashboard
 });
