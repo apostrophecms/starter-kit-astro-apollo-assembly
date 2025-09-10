@@ -1,7 +1,5 @@
 {% extends data.outerLayout %}
 
-{% import 'fragments/link.html' as link %}
-
 {% block title %}
   {% set title = data.piece.title or data.page.title %}
 
@@ -28,15 +26,13 @@
       {% for item in data.global.headerLinks %}
         {% set path = apos.template.linkPath(item) %}
   
-        {% rendercall link.template({
-          path: path,
-          class: 'navigation__link',
-          attributes: {
-            target: item.linkTarget
-          }
-        }) %}
+        <a
+          class="link navigation__link"
+          href="{{ path }}"
+          target="{{ item.linkTarget }}"
+        >
           {{ item.linkText }}
-        {% endrendercall %}
+        </a>
       {% endfor %}
   
       {% if not data.user %}
