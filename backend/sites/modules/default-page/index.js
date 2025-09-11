@@ -9,7 +9,6 @@ export default {
     add: {
       main: {
         type: 'area',
-        label: 'Main',
         options: getWidgetGroups({
           includeLayouts: true
         })
@@ -19,7 +18,6 @@ export default {
       basics: {
         label: 'Basics',
         fields: [
-          'title',
           'main'
         ]
       }

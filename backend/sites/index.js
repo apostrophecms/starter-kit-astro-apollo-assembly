@@ -15,6 +15,9 @@
 const getTranslationAndSeoModules = () => {
   const entries = [];
 
+  // NOTE: if you set one of the environment variable below
+  // please restart the backend server with APOS_DEV=1
+  // It will rebuild the admin UI with the new components
   const hasOpenAI = process.env.OPENAI_API_KEY;
   const deepl = process.env.APOS_DEEPL_API_SECRET;
   const google = process.env.APOS_GOOGLE_API_SECRET;
@@ -58,6 +61,19 @@ const getTranslationAndSeoModules = () => {
     }
   }
 
+  if (hasOpenAI) {
+    entries.push([
+      '@apostrophecms-pro/seo-assistant',
+      {
+        options: {
+          provider: 'openai'
+        }
+      }
+    ]);
+
+    entries.push([ '@apostrophecms-pro/seo-assistant-openai', {} ]);
+  }
+
   return Object.fromEntries(entries);
 };
 
@@ -80,23 +96,8 @@ export default async function (site) {
       // *********************************
       '@apostrophecms/vite': {},
 
-      '@apostrophecms/uploadfs': {
-        options: {
-          uploadfs: {
-            // TODO: Be sure to change
-            disabledFileKey: 'CHANGEME'
-          }
-        }
-      },
-      '@apostrophecms/express': {
-        options: {
-          session: {
-            // TODO: Be sure to change
-            // TODO: check modules/ folder for override
-            secret: 'CHANGEME'
-          }
-        }
-      },
+      '@apostrophecms/uploadfs': {},
+      '@apostrophecms/express': {},
 
       // `className` options set custom CSS classes for Apostrophe core widgets.
       '@apostrophecms/rich-text-widget': {},
