@@ -1,5 +1,3 @@
-import colorOptionsHelper from '../helpers/color-options.js';
-
 export default {
   linkText: {
     label: 'Link/Button Text',
@@ -90,10 +88,22 @@ export default {
     label: 'Button Style',
     def: '',
     choices: [
-      { label: 'Solid', value: '' },
-      { label: 'Outlined', value: 'outlined' },
-      { label: 'Inverted', value: 'inverted' },
-      { label: 'Rounded', value: 'rounded' }
+      {
+        label: 'Solid',
+        value: ''
+      },
+      {
+        label: 'Outlined',
+        value: 'outlined'
+      },
+      {
+        label: 'Inverted',
+        value: 'inverted'
+      },
+      {
+        label: 'Rounded',
+        value: 'rounded'
+      }
     ],
     if: {
       linkStyle: 'button'
