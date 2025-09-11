@@ -642,7 +642,7 @@ If your changes are not reflected:
 
 ### Root `package.json` scripts
 
-The root of the project has several useful scripts located in the `package.json` file. Running `npm run install` in the root directory will trigger the `postinstall` script. This will install the dependencies for both the ApostropheCMS and Astro projects. Similarly, `npm run update` will update dependencies for both the `frontend` and `backend` folders. The rest of the scripts in this file are primarily used for project deployment to Apostrophe hosting.
+The root of the project has several useful scripts located in the `package.json` file. Running `npm install` in the root directory will install the dependencies for both the ApostropheCMS and Astro projects. Similarly, `npm update` will update dependencies for both the `frontend` and `backend` folders. The rest of the scripts in this file are primarily used for project deployment to Apostrophe hosting.
 
 ### Frontend folder scripts
 
