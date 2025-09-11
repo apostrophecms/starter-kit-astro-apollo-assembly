@@ -49,5 +49,5 @@ export default {
   footer: {
     label: 'Footer',
     fields: getKeysWithPrefix(fields, 'footer')
-  } 
+  }
 };
