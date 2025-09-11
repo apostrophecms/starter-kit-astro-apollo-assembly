@@ -1,16 +1,16 @@
 {
   "name": "apollo-assembly-backend",
   "version": "1.0.0",
-  "description": "Apostrophe backend for the ApostropheCMS + Astro Apollo template",
+  "description": "Apostrophe backend for the ApostropheCMS Multisite + Astro Apollo template",
   "main": "app.js",
   "type": "module",
   "scripts": {
     "start": "node app",
     "dev": "APOS_EXTERNAL_FRONT_KEY=dev nodemon",
-    "build": "NODE_ENV=production node app @apostrophecms/asset:build",
+    "build": "NODE_ENV=production node app --all-sites @apostrophecms/asset:build",
     "serve": "NODE_ENV=production node app",
     "release": "npm install && npm run build && npm run migrate",
-    "migrate": "NODE_ENV=production node app @apostrophecms/migration:migrate",
+    "migrate": "NODE_ENV=production node app --all-sites @apostrophecms/migration:migrate",
     "load-starter-content": "./scripts/load-starter-content"
   },
   "engines": {
@@ -38,11 +38,10 @@
     "@apostrophecms/open-graph": "^1.2.3",
     "@apostrophecms/seo": "^1.3.1",
     "@apostrophecms/vite": "^1.1.0",
-    "apostrophe": "^4.20.0",
+    "apostrophe": "^4.21.0",
     "normalize.css": "^8.0.1"
   },
   "devDependencies": {
-    "autoprefixer": "^10.4.21",
     "eslint": "^8.0.0",
     "eslint-config-apostrophe": "^4.0.0",
     "nodemon": "^3.0.1",
