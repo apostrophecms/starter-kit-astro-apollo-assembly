@@ -139,7 +139,7 @@ To simplify dependency management, this repository includes several root-level s
    cd frontend && npm run dev
    ```
 
-Your site will be available at `http://localhost:4321` (Astro frontend). The ApostropheCMS backend will be available at `http://dashboard.localhost:3000`, but it just gives notification of whether it is connected to the Astro frontend. In most cases you never need to access this page.
+Your site will be available at `http://dashboard.localhost:4321` (Astro frontend). The ApostropheCMS backend will be available at `http://dashboard.localhost:3000`, but it just gives notification of whether it is connected to the Astro frontend. In most cases you never need to access this page.
 
 > **Note:** Astro is less stringent about project setup in development mode. Before deployment, run `npm run build` followed by `npm run preview` in the `frontend` folder to test production behavior. We don't recommend using the root `npm run serve-frontend` script during development - it's used for Apostrophe hosting.
 
