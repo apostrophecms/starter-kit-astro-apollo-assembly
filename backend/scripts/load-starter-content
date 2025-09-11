@@ -1,14 +1,14 @@
 #!/usr/bin/env bash
 
 if [ -z "$APOS_MONGODB_URI" ]; then
-  APOS_MONGODB_URI="mongodb://localhost:27017/apollo-pro"
+  APOS_MONGODB_URI="mongodb://localhost:27017/apollo-assembly-dashboard"
 fi
 
-curl -o /tmp/starter-database.snapshot https://static.apostrophecms.com/apollo/starter-database.snapshot &&
-mongodb-snapshot-read --erase --from=/tmp/starter-database.snapshot --to=$APOS_MONGODB_URI &&
-curl -o /tmp/starter-uploads.tar https://static.apostrophecms.com/apollo/starter-uploads.tar &&
+curl -o /tmp/starter-assembly-database.snapshot https://static.apostrophecms.com/apollo/starter-assembly-database.snapshot &&
+mongodb-snapshot-read --erase --from=/tmp/starter-assembly-database.snapshot --to=$APOS_MONGODB_URI &&
+curl -o /tmp/starter-assembly-uploads.tar https://static.apostrophecms.com/apollo/starter-assembly-uploads.tar &&
 mkdir -p public/uploads &&
-(cd public/uploads && tar -xf /tmp/starter-uploads.tar) &&
+(cd public/uploads && tar -xf /tmp/starter-assembly-uploads.tar) &&
 echo "Starter content loaded. Now set an admin password." &&
 node app @apostrophecms-pro/advanced-permission-group:add-admin admin &&
 node app @apostrophecms/user:add admin --group=admin
