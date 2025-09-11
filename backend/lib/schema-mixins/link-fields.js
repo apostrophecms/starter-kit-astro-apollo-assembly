@@ -1,5 +1,3 @@
-import colorOptionsHelper from '../helpers/color-options.js';
-
 export default {
   linkText: {
     label: 'Link/Button Text',
@@ -203,15 +201,6 @@ export default {
       }
     ],
     def: 'left',
-    if: {
-      linkStyle: 'button'
-    }
-  },
-  buttonColor: {
-    label: 'Button Color',
-    type: 'select',
-    def: 'primary',
-    choices: colorOptionsHelper.getColorOptions(),
     if: {
       linkStyle: 'button'
     }

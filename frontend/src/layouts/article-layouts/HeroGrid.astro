@@ -44,7 +44,7 @@ const currentCategory = Astro.url.searchParams.get('category') || '';
     </div>
     <div class='column'>
       <a href={pieces[0]._url}>
-        <h1 class='title is-2 mb-4'>{pieces[0].title}</h1>
+        <h1 class='h1 mb-4'>{pieces[0].title}</h1>
       </a>
       <p class='subtitle is-5 mb-4'>{pieces[0].excerpt}</p>
       <div class='author-info mb-4'>
@@ -70,7 +70,7 @@ const currentCategory = Astro.url.searchParams.get('category') || '';
           </div>
         </div>
       </div>
-      <a href={pieces[0]._url} class='button is-primary is-medium'>
+      <a href={pieces[0]._url} class='button default is-medium'>
         Read More
       </a>
     </div>
@@ -107,7 +107,7 @@ const currentCategory = Astro.url.searchParams.get('category') || '';
           </a>
           <div class='card-content'>
             <a href={article._url} class='has-text-dark card-title'>
-              <h3 class='title is-4'>{article.title}</h3>
+              <h3 class='h3'>{article.title}</h3>
             </a>
             <p class='subtitle is-6'>
               By {article._author[0]?.title || 'unknown'} |
@@ -116,7 +116,7 @@ const currentCategory = Astro.url.searchParams.get('category') || '';
             <p class='content'>{article.excerpt}</p>
           </div>
           <footer class='card-footer mt-auto'>
-            <a href={article._url} class='button has-background-primary has-text-black is-info'>
+            <a href={article._url} class='button default'>
               Read More
             </a>
           </footer>

@@ -34,7 +34,7 @@ const heroImage = article?._heroImage?.[0];
 <article class='minimal-article'>
   <div class='section'>
     <div class='container is-max-desktop'>
-      <h1 class='title is-2'>{article.title}</h1>
+      <h1 class='h1'>{article.title}</h1>
       <p class='subtitle is-6 mb-6'>
         {new Date(article.publishDate).toLocaleDateString()} · By {
           article._author[0]?.title || 'unknown'
@@ -48,7 +48,7 @@ const heroImage = article?._heroImage?.[0];
       {
         article._related?.length > 0 && (
           <div class='box mt-6'>
-            <h4 class='title is-5 mb-4'>More Articles</h4>
+            <h4 class='h4 mb-4'>More Articles</h4>
             <div class='columns is-multiline'>
               {article._related?.map((related) => {
                 const relatedHero = related?._heroImage?.[0];

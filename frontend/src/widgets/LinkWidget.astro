@@ -46,8 +46,7 @@ const getButtonStyle = (style) => style ? `is-${style}` : '';
 const isButton = widget.linkStyle === 'button';
 const buttonClasses = isButton
   ? [
-      'button',
-      widget.buttonColor && `is-${widget.buttonColor}`,
+      'button default',
       getButtonStyle(widget.buttonStyle),
       widget.buttonSize && `is-${widget.buttonSize}`
     ].filter(Boolean).join(' ')

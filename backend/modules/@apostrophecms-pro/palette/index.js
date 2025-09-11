@@ -1,18 +1,8 @@
+import fields from './lib/fields.js';
+import groups from './lib/groups.js';
 export default {
   fields: {
-    add: {
-      backgroundColor: {
-        type: 'color',
-        label: 'Page Background',
-        selector: 'body',
-        property: 'background-color'
-      }
-    },
-    group: {
-      colors: {
-        label: 'Colors',
-        fields: [ 'backgroundColor' ]
-      }
-    }
+    add: fields,
+    group: groups
   }
 };

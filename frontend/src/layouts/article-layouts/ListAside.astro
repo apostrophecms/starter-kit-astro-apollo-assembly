@@ -31,7 +31,7 @@ const currentCategory = Astro.url.searchParams.get('category') || '';
         <article class='box mb-6 is-relative'>
           <div class='columns is-vcentered'>
             <div class='column is-7'>
-              <h2 class='title is-3 mb-4'>
+              <h2 class='h2 mb-4'>
                 <a href={article._url}>{article.title}</a>
               </h2>
               <div class='author-info mb-3'>
@@ -123,7 +123,7 @@ const currentCategory = Astro.url.searchParams.get('category') || '';
       )
     }
     <div class='box sticky-top'>
-      <h3 class='title is-4 mb-4'>Quick Navigation</h3>
+      <h3 class='h3 mb-4'>Quick Navigation</h3>
       <aside class='menu'>
         <ul class='menu-list'>
           {

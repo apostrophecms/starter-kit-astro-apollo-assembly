@@ -8,7 +8,6 @@ const {
   getDropdownClasses,
   renderBranding,
   getHeaderClasses,
-  getHeaderTransparency
 } = useSiteConfig(aposData.global);
 
 function formatNavItem(page) {
@@ -27,9 +26,6 @@ const navMenuClasses = () => {
   const classes = [];
   const alignment = headerGroup.navAlignment || 'end';
   classes.push(`navbar-${alignment}`);
-  if (headerGroup.headerBackgroundColor) {
-    classes.push(`has-background-${headerGroup.headerBackgroundColor}`);
-  }
   return classes.join(' ');
 };
 
@@ -43,7 +39,7 @@ const navItems = mainNav.map(formatNavItem).filter(Boolean);
 const shouldShowItems = navItems.length > 0;
 ---
 
-<header class={getHeaderClasses()} data-transparency={getHeaderTransparency()}>
+<header class={getHeaderClasses()}>
   <div class='container'>
     <div class='navbar-brand'>
       <a href='/' class='navbar-item' set:html={renderBranding()} />
@@ -52,7 +48,7 @@ const shouldShowItems = navItems.length > 0;
           role='button'
           aria-label='menu'
           aria-expanded='false'
-          class={`navbar-burger has-text-${headerGroup.mobileMenuColor || 'current'}`}
+          class={`navbar-burger`}
           data-target='navMenu'
         >
           <span aria-hidden='true' />
@@ -148,7 +144,6 @@ const shouldShowItems = navItems.length > 0;
   function initializeNavbar() {
     setupBurgerMenu();
     setupScrollFade();
-    updateHeaderTransparency();
 
     // Reinitialize on ApostropheCMS refresh
     if (window.apos) {
@@ -185,26 +180,15 @@ const shouldShowItems = navItems.length > 0;
         const scrollingUp = currentScroll < lastScroll;
 
         if (scrollingUp) {
-          header.style.opacity = 1;
           fadeStartPosition = currentScroll;
         } else {
           const scrollDistance = currentScroll - fadeStartPosition;
           const opacity = 1 - Math.min(scrollDistance / maxScroll, 1);
-          header.style.opacity = opacity;
         }
 
         lastScroll = currentScroll;
       },
       { passive: true }
     );
-  }
-
-  // Apply initial header transparency based on data attribute
-  function updateHeaderTransparency() {
-    const header = document.querySelector('.navbar');
-    if (!header || header.classList.contains('is-fixed-fade')) return;
-
-    const transparency = Number(header.dataset.transparency) || 100;
-    header.style.opacity = transparency / 100;
   }
 </script>

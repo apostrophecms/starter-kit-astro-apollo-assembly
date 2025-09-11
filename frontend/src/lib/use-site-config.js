@@ -19,48 +19,14 @@ export function useSiteConfig(globalData) {
       classes.push(headerGroup.spacing);
     }
 
-    // Add background color
-    if (headerGroup.headerBackgroundColor) {
-      classes.push(`has-background-${headerGroup.headerBackgroundColor}`);
-    }
-
-    // Add text color
-    if (headerGroup.headerTextColor) {
-      classes.push(`has-text-${headerGroup.headerTextColor}`);
-    }
-
     return classes.join(' ');
   };
-
-
-  const getHeaderTransparency = () => {
-    if (headerGroup.transparency) {
-      return headerGroup.transparency;
-    };
-    return 100;
-  }
 
   const getNavItemClasses = (isActive = false) => {
     const classes = ['navbar-item'];
 
-    if (headerGroup.dropdownTextColor) {
-      classes.push(`has-text-${headerGroup.dropdownTextColor}`);
-    }
-
-    if (headerGroup.headerBackgroundColor) {
-      classes.push(`has-background-${headerGroup.headerBackgroundColor}`);
-    }
-
     if (isActive) {
       classes.push('is-active');
-      if (headerGroup.headerActiveColor) {
-        classes.push(`has-background-${headerGroup.headerActiveColor}`);
-      }
-    }
-
-    // Add hover classes via data attribute for CSS handling
-    if (headerGroup.headerHoverColor) {
-      classes.push(`hover-color-${headerGroup.headerHoverColor}`);
     }
 
     return classes.join(' ');
@@ -68,14 +34,6 @@ export function useSiteConfig(globalData) {
 
   const getDropdownClasses = () => {
     const classes = ['navbar-dropdown'];
-    if (headerGroup.dropdownTextColor) {
-      classes.push(`has-text-${headerGroup.dropdownTextColor}`);
-    }
-
-    if (headerGroup.headerBackgroundColor) {
-      classes.push(`has-background-${headerGroup.headerBackgroundColor}`);
-    }
-
     return classes.join(' ');
   };
 
@@ -103,7 +61,7 @@ export function useSiteConfig(globalData) {
     // Add text if needed
     if (displayType === 'text' || displayType === 'both') {
       elements.push(
-        `<span class="navbar-brand-text ${brandingGroup.siteTextSize || 'is-size-4'} has-text-${headerGroup.headerTextColor}">
+        `<span class="navbar-brand-text ${brandingGroup.siteTextSize || 'is-size-4'}">
           ${brandingGroup.siteTitle}
         </span>`
       );
@@ -114,7 +72,6 @@ export function useSiteConfig(globalData) {
 
   return {
     getHeaderClasses,
-    getHeaderTransparency,
     getNavItemClasses,
     getDropdownClasses,
     renderBranding

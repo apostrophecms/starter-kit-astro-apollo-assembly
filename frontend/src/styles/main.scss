@@ -94,6 +94,8 @@ body {
     'Arial',
     sans-serif
   );
+  border-style: solid;
+  border-width: 0;
 }
 
 h1,
@@ -187,3 +189,20 @@ ol.apos-area-widget__breadcrumbs {
   object-fit: cover;
   aspect-ratio: var(--aspect-ratio, auto);
 }
+
+.h1 {
+  @extend .is-1;
+}
+
+.h2 {
+  @extend .is-3;
+}
+
+.h3 {
+  @extend .is-4;
+}
+
+.h4, .h5 {
+  @extend .is-5;
+}
+

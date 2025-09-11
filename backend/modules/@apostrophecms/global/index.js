@@ -1,4 +1,3 @@
-import colorOptionsHelper from '../../../lib/helpers/color-options.js';
 import textSizeHelper from '../../../lib/helpers/typography-options.js';
 
 export default {
@@ -133,28 +132,6 @@ export default {
               ],
               def: 'end'
             },
-            headerBackgroundColor: {
-              type: 'select',
-              label: 'Header Background Color',
-              help: 'Choose the background color for the navigation bar',
-              choices: colorOptionsHelper.getColorOptions(),
-              def: 'transparent'
-            },
-            transparency: {
-              type: 'range',
-              label: 'Header Transparency',
-              help: '0 is fully transparent, 100 is solid',
-              min: 0,
-              max: 100,
-              step: 5,
-              def: 100,
-              if: {
-                $or: [
-                  { headerPosition: 'fixed' },
-                  { headerPosition: 'static' }
-                ]
-              }
-            },
             spacing: {
               type: 'select',
               label: 'Header Spacing',
@@ -178,47 +155,6 @@ export default {
                 }
               ],
               def: 'spacing-md'
-            },
-            headerTextColor: {
-              type: 'select',
-              label: 'Header Text Color',
-              help: 'Choose the color for navigation text',
-              choices: colorOptionsHelper.getColorOptions().filter(color =>
-                color.value !== 'transparent'
-              ),
-              def: 'black'
-            },
-            headerActiveColor: {
-              type: 'select',
-              label: 'Active Link Color',
-              help: 'Color for the currently active navigation item',
-              choices: colorOptionsHelper.getColorOptions().filter(color =>
-                color.value !== 'transparent'
-              )
-            },
-            headerHoverColor: {
-              type: 'select',
-              label: 'Link Hover Color',
-              help: 'Color for the navigation item when hovered over',
-              choices: colorOptionsHelper.getColorOptions().filter(color =>
-                color.value !== 'transparent'
-              )
-            },
-            dropdownTextColor: {
-              type: 'select',
-              label: 'Dropdown Text Color',
-              help: 'Choose the color for dropdown text',
-              choices: colorOptionsHelper.getColorOptions().filter(color =>
-                color.value !== 'transparent'
-              )
-            },
-            mobileMenuColor: {
-              type: 'select',
-              label: 'Mobile Menu Icon Color',
-              help: 'Choose the color for the mobile menu icon',
-              choices: colorOptionsHelper.getColorOptions().filter(color =>
-                color.value !== 'transparent'
-              )
             }
           }
         }
@@ -233,39 +169,6 @@ export default {
               label: 'Show Branding in Footer',
               help: 'Uses the same branding configuration as header',
               def: true
-            },
-            // Appearance settings
-            footerBackgroundColor: {
-              type: 'select',
-              label: 'Background Color',
-              help: 'Choose the background color for the footer',
-              choices: colorOptionsHelper.getColorOptions(),
-              def: 'white'
-            },
-            footerTextColor: {
-              type: 'select',
-              label: 'Text Color',
-              help: 'Choose the color for footer text',
-              choices: colorOptionsHelper.getColorOptions().filter(color =>
-                color.value !== 'transparent'
-              ),
-              def: 'black'
-            },
-            footerLinkColor: {
-              type: 'select',
-              label: 'Link Color',
-              help: 'Choose the color for footer links',
-              choices: colorOptionsHelper.getColorOptions().filter(color =>
-                color.value !== 'transparent'
-              )
-            },
-            footerLinkHoverColor: {
-              type: 'select',
-              label: 'Link Hover Color',
-              help: 'Choose the color for footer links when hovered over',
-              choices: colorOptionsHelper.getColorOptions().filter(color =>
-                color.value !== 'transparent'
-              )
             },
             // Social Media settings
             socialLinks: {
