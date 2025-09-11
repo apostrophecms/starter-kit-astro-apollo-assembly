@@ -4,7 +4,7 @@
   "description": "The base Apollo theme for ApostropheCMS+Astro with Assembly",
   "type": "module",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "npm test --workspaces --if-present",
     "build": "npm run build --workspaces",
     "migrate": "npm run migrate --workspace=backend",
     "serve-frontend": "npm run serve --workspace=frontend",
