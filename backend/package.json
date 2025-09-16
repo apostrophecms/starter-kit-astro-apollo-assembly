@@ -12,8 +12,7 @@
     "release": "npm install && npm run build && npm run migrate",
     "migrate": "NODE_ENV=production node app --all-sites @apostrophecms/migration:migrate",
     "test": "npm run lint",
-    "lint": "eslint . && stylelint {dashboard,sites}/modules/**/*.{scss,vue}",
-    "load-starter-content": "./scripts/load-starter-content"
+    "lint": "eslint . && stylelint {dashboard,sites}/modules/**/*.{scss,vue}"
   },
   "engines": {
     "node": ">=20.3.0 <21 || >=22.0.0",

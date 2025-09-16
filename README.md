@@ -97,7 +97,7 @@ Overall, this project utilizes ApostropheCMS as a headless backend with Astro as
 
 The codebases located in the `backend` and `frontend` folders should be treated as interlinked but separate projects.
 
-To simplify dependency management, this repository includes several root-level scripts for convenience. The `postinstall` script automatically installs dependencies for both the `frontend` and `backend` folders when you run `npm install` at the root.
+To simplify dependency management, this repository includes several root-level scripts for convenience. Running `npm install` at the root automatically installs dependencies for both the `frontend` and `backend` folders.
 
 1. **Install dependencies**
 
@@ -105,15 +105,7 @@ To simplify dependency management, this repository includes several root-level s
    npm install
    ```
 
-2. **Load starter content** (optional, but recommended)
-
-   ```bash
-   npm run load-starter-content
-   ```
-
-   This fetches a starter database and media files. You'll be prompted to set an admin password.
-
-3. **Set up environment variables**
+2. **Set up environment variables**
    Both projects need an `APOS_EXTERNAL_FRONT_KEY` environment variable set to the same value for authentication. Open two terminals:
    - **Mac/Linux users**: One terminal in `frontend` folder, one in `backend` folder
    - **Windows users**: WSL terminal for `backend` folder, WSL or Windows terminal for `frontend` folder
@@ -129,6 +121,15 @@ To simplify dependency management, this repository includes several root-level s
    export APOS_HOST=your-backend-url
    ```
 
+3. **Create an admin user**
+
+   ```bash
+   cd backend
+   node app --site=dashboard @apostrophecms/user:add admin admin
+   ```
+
+   This creates a user named `admin` with the correct privileges. You will be asked to enter a password.
+
 4. **Start development servers**
 
    ```bash
@@ -142,17 +143,6 @@ To simplify dependency management, this repository includes several root-level s
 Your site will be available at `http://dashboard.localhost:4321` (Astro frontend). The ApostropheCMS backend will be available at `http://dashboard.localhost:3000`, but it just gives notification of whether it is connected to the Astro frontend. In most cases you never need to access this page.
 
 > **Note:** Astro is less stringent about project setup in development mode. Before deployment, run `npm run build` followed by `npm run preview` in the `frontend` folder to test production behavior. We don't recommend using the root `npm run serve-frontend` script during development - it's used for Apostrophe hosting.
-
-### Alternative: Empty Database Setup
-
-⚠️ If you prefer to start with an empty database instead of the starter content you will need to add an admin user:
-
-```bash
-cd backend
-node app @apostrophecms/user:add admin admin
-```
-
-This creates a user named `admin` with the correct privileges. You will be asked to enter a password.
 
 ---
 
@@ -180,7 +170,7 @@ This project utilizes ApostropheCMS as a headless backend with Astro as a fronte
 │   ├── package.json       # Astro-specific scripts
 │   └── ...
 └── README.md              # This file
-└── package.json.          # Whole project scripts
+└── package.json           # Whole project scripts
 ```
 
 ### For ApostropheCMS Developers
