@@ -1,27 +1,18 @@
 {
-  "name": "apollo-pro",
+  "name": "apollo-assembly",
   "version": "1.0.0",
-  "description": "The base Apollo theme for ApostropheCMS+Astro with Pro features",
-  "main": "index.js",
+  "description": "The base Apollo theme for ApostropheCMS+Astro with Assembly",
+  "type": "module",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "postinstall": "npm run install-frontend && npm run install-backend && echo '\\n💡 combined npm install complete'",
-    "install-frontend": "cd frontend && echo '\\n💡 running npm install in frontend/' && npm install",
-    "install-backend": "cd backend && echo '\\n💡 running npm install in backend/' && npm install",
-    "update": "npm run update-frontend && npm run update-backend && echo '\\n💡 combined npm update complete'",
-    "update-frontend": "cd frontend && echo '\\n💡 running npm update in frontend/' && npm update",
-    "update-backend": "cd backend && echo '\\n💡 running npm update in backend/' && npm update",
-    "build": "npm run build-frontend && npm run build-backend && echo '\\n💡 combined npm build complete'",
-    "build-frontend": "cd frontend && echo '\\n💡 running npm run build in frontend/' && npm run build",
-    "build-backend": " cd backend && echo '\\n💡 running npm run build in backend/' && npm run build",
-    "migrate": "cd backend && npm run migrate",
-    "serve-frontend": "cd frontend && npm run serve",
-    "serve-backend": "cd backend && npm run serve",
-    "load-starter-content": "cd backend && npm run load-starter-content"
+    "test": "npm test --workspaces --if-present",
+    "build": "npm run build --workspaces",
+    "migrate": "npm run migrate --workspace=backend",
+    "serve-frontend": "npm run serve --workspace=frontend",
+    "serve-backend": "npm run serve --workspace=backend"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/apostrophecms/apollo-pro.git"
+    "url": "git+https://github.com/apostrophecms/starter-kit-astro-apollo-assembly.git"
   },
   "keywords": [
     "astro",
@@ -31,9 +22,11 @@
   "author": "Apostrophe Technologies Inc.",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/apostrophecms/apollo-pro/issues"
+    "url": "https://github.com/apostrophecms/starter-kit-astro-apollo-assembly/issues"
   },
-  "homepage": "https://github.com/apostrophecms/apollo-pro#readme",
-  "dependencies": {
-  }
+  "homepage": "https://github.com/apostrophecms/starter-kit-astro-apollo-assembly#readme",
+  "workspaces": [
+    "backend",
+    "frontend"
+  ]
 }

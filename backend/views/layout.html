@@ -89,7 +89,7 @@
   </div>
   
   <div id="astro-running" class="hidden">
-    <p>The Astro frontend is running. You can access the complete site at: <a href="http://localhost:4321" id="astro-link">http://localhost:4321</a></p>
+    <p>The Astro frontend is running. You can access the complete site at: <a href="http://dashboard.localhost:4321" id="astro-link">http://dashboard.localhost:4321</a></p>
   </div>
 </div>
 
@@ -116,32 +116,32 @@
     }
   }
 
-function checkAstroConnection() {
-  fetch('http://localhost:4321')
-    .then(() => {
-      // Server responded successfully
-      updateUI(true);
-      if (checkInterval) {
-        clearInterval(checkInterval);
-        console.log('Astro frontend detected. Stopping periodic checks.');
-      }
-    })
-    .catch((error) => {
-      console.log('Astro frontend check error:', error.message);
-      if (error.message.includes('CORS')) {
-        // CORS error means server exists but blocked the request - that's fine!
+  function checkAstroConnection() {
+    fetch('http://dashboard.localhost:4321')
+      .then(() => {
+        // Server responded successfully
         updateUI(true);
         if (checkInterval) {
           clearInterval(checkInterval);
-          console.log('Astro frontend detected (CORS block). Stopping periodic checks.');
+          console.log('Astro frontend detected. Stopping periodic checks.');
         }
-      } else {
-        // Other errors mean no server
-        updateUI(false);
-        console.log('Astro frontend not detected:', error);
-      }
-    });
-}
+      })
+      .catch((error) => {
+        console.log('Astro frontend check error:', error.message);
+        if (error.message.includes('CORS')) {
+          // CORS error means server exists but blocked the request - that's fine!
+          updateUI(true);
+          if (checkInterval) {
+            clearInterval(checkInterval);
+            console.log('Astro frontend detected (CORS block). Stopping periodic checks.');
+          }
+        } else {
+          // Other errors mean no server
+          updateUI(false);
+          console.log('Astro frontend not detected:', error);
+        }
+      });
+  }
 
   // Check for Astro connection immediately
   checkAstroConnection();
