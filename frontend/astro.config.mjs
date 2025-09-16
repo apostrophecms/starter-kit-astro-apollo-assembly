@@ -15,8 +15,7 @@ export default defineConfig({
   }),
   integrations: [
     apostrophe({
-      aposHost: '*',
-      portMapping: [4321, 3000],
+      aposHost: 'http://dashboard.localhost:3000',
       widgetsMapping: './src/widgets',
       templatesMapping: './src/templates',
       includeResponseHeaders: [
