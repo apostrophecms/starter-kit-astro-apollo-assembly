@@ -1,0 +1,5 @@
+#!/bin/bash
+
+export NODE_ENV=production
+node app @apostrophecms/asset:build --site=dashboard 
+node app @apostrophecms/asset:build --all-sites
