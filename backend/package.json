@@ -6,10 +6,9 @@
   "type": "module",
   "scripts": {
     "start": "node app",
-    "production-start": "APOS_UPLOADFS_ASSETS=1 NODE_ENV=production npm run start",
+    "serve": "APOS_UPLOADFS_ASSETS=1 NODE_ENV=production npm run start",
     "dev": "APOS_EXTERNAL_FRONT_KEY=dev nodemon",
     "build": "./deployment/build",
-    "serve": "NODE_ENV=production node app",
     "release": "npm install && npm run build && npm run migrate",
     "migrate": "./deployment/migrate",
     "test": "npm run lint",
