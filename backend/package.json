@@ -31,7 +31,7 @@
     "@apostrophecms-pro/document-versions": "^2.6.0",
     "@apostrophecms-pro/import-export-translation": "^1.0.3",
     "@apostrophecms-pro/multisite": "^4.4.1",
-    "@apostrophecms-pro/multisite-dashboard": "github:apostrophecms/multisite-dashboard#ui-only-sometimes",
+    "@apostrophecms-pro/multisite-dashboard": "github:apostrophecms/multisite-dashboard",
     "@apostrophecms-pro/palette": "^4.8.1",
     "@apostrophecms-pro/seo-assistant": "^1.2.1",
     "@apostrophecms/favicon": "^1.1.3",
