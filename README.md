@@ -362,7 +362,7 @@ export APOS_HOST=your-backend-url
 
 **Access the dashboard:**
 
-Visit `http://dashboard.localhost:3000/login` and log in with the admin credentials you created in step 4.
+Visit `http://dashboard.localhost:4321/login` and log in with the admin credentials you created in step 4.
 
 **Create your first site:**
 
