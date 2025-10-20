@@ -133,8 +133,6 @@ cd your-assembly-apollo-project
 npm install
 ```
 
-This repo takes advantage of npm namespaces. This means that the dependencies for both `backend` and `frontend` folders are installed at root level.
-
 #### 2. Configure Required Settings
 
 Before starting, you must configure several critical settings. These ensure your multisite platform works correctly in development and prevents conflicts with other Assembly projects.
@@ -167,7 +165,7 @@ await multisite({
 - `https://acme.staging.your-domain.com` (staging)
 - `https://acme.your-domain.com` (production, before you set a custom production hostname)
 
-Edit `domains.js` in the root directory:
+Edit `domains.js` in the `backend/` directory:
 
 ```javascript
 export default {
@@ -788,7 +786,7 @@ For JavaScript, use Astro's `<script>` tags or client directives directly in you
 
 ### Adding a New Theme
 
-1. Add theme definition to `themes.js` in the root directory
+1. Add theme definition to `themes.js` in the `backend/` directory
 2. Create `backend/sites/lib/theme-{name}.js`:
 ```javascript
 export default function(site, config) {
