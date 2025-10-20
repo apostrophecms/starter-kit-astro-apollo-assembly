@@ -76,8 +76,8 @@ This starter kit provides a complete enterprise multisite solution:
   - [🚀 Getting Started](#-getting-started)
   - [⚙️ Advanced Multisite Configuration](#️-advanced-multisite-configuration)
   - [🏗️ Project Architecture](#️-project-architecture)
-  - [Development Workflow](#development-workflow)
-  - [Dashboard Development](#dashboard-development)
+  - [🔧 Development Workflow](#-development-workflow)
+  - [📊 Dashboard Development](#-dashboard-development)
   - [⏰ Task Scheduling](#-task-scheduling)
   - [🗄️ MongoDB Utilities](#️-mongodb-utilities)
   - [🚀 Pro Modules](#-pro-modules)
@@ -85,8 +85,8 @@ This starter kit provides a complete enterprise multisite solution:
   - [🖼️ Image Helper Functions](#️-image-helper-functions)
   - [🖌️ Theming](#️-theming)
   - [⚙️ Package Scripts](#️-package-scripts)
-  - [Additional Resources](#additional-resources)
-  - [Licensing](#licensing)
+  - [📚 Additional Resources](#-additional-resources)
+  - [⚖️ Licensing](#️-licensing)
 
 
 ---
@@ -756,7 +756,7 @@ Read more in the [`apostrophe-astro` documentation](https://github.com/apostroph
 
 ---
 
-## Development Workflow
+## 🔧 Development Workflow
 
 ### Backend Development
 
@@ -812,7 +812,7 @@ Each site maintains completely separate:
 - Configuration (within theme constraints)
 - Pro module settings (like Palette customizations)
 
-## Dashboard Development
+## 📊 Dashboard Development
 
 **The dashboard site has one job: managing the other sites.** As such, you don't need to worry about making this site a pretty experience for the general public, because they won't have access to it. However, you may want to dress up this experience and add extra functionality for your own customer admin team (the people who add and remove sites from the platform).
 
@@ -2176,7 +2176,7 @@ Run the `build` script before starting the server in preview mode. The remainder
 
 ---
 
-## Additional Resources
+## 📚 Additional Resources
 
 **Detailed Documentation:**
 - [Assembly Essentials Starter Kit](https://github.com/apostrophecms/starter-kit-assembly-essentials) - Backend multisite architecture details
@@ -2199,7 +2199,7 @@ Run the `build` script before starting the server in preview mode. The remainder
 
 ---
 
-## Licensing
+## ⚖️ Licensing
 
 This project code is MIT licensed. Using this starter kit requires an active ApostropheCMS Assembly license, which includes all Pro features. [View pricing](https://apostrophecms.com/pricing) or [contact us](https://apostrophecms.com/contact-us) to discuss licensing options.
 
