@@ -11,7 +11,7 @@ This kit combines Astro’s fast frontend performance with ApostropheCMS Assembl
 The template includes **all ApostropheCMS Pro modules**, plus a Bulma-based design system with rich content features.
 
 ---
-
+<!-- omit in toc -->
 ## ✨ Highlights
 
 **For Platform Owners:**
@@ -40,7 +40,7 @@ The template includes **all ApostropheCMS Pro modules**, plus a Bulma-based desi
 * 🎨 **Visual Customization** – Palette extension for in-context design control
 
 ---
-
+<!-- omit in toc -->
 ## What You Get
 
 This starter kit provides a complete enterprise multisite solution:
@@ -69,28 +69,25 @@ This starter kit provides a complete enterprise multisite solution:
 * **Template Library** – Reusable document templates
 
 ---
-
+<!-- omit in toc -->
 ## Table of Contents
+- [Apollo Starter Kit for ApostropheCMS Assembly + Astro Integration (Pro Edition)](#apollo-starter-kit-for-apostrophecms-assembly--astro-integration-pro-edition)
+  - [Introduction](#introduction)
+  - [🚀 Getting Started](#-getting-started)
+  - [⚙️ Advanced Multisite Configuration](#️-advanced-multisite-configuration)
+  - [🏗️ Project Architecture](#️-project-architecture)
+  - [Development Workflow](#development-workflow)
+  - [Dashboard Development](#dashboard-development)
+  - [⏰ Task Scheduling](#-task-scheduling)
+  - [🗄️ MongoDB Utilities](#️-mongodb-utilities)
+  - [🚀 Pro Modules](#-pro-modules)
+  - [🌟 Features \& Widgets](#-features--widgets)
+  - [🖼️ Image Helper Functions](#️-image-helper-functions)
+  - [🖌️ Theming](#️-theming)
+  - [⚙️ Package Scripts](#️-package-scripts)
+  - [Additional Resources](#additional-resources)
+  - [Licensing](#licensing)
 
-* [Apollo Starter Kit for ApostropheCMS Assembly + Astro Integration (Pro Edition)](#apollo-starter-kit-for-apostrophecms-assembly--astro-integration-pro-edition)
-
-  * [Highlights](#-highlights)
-  * [What You Get](#what-you-get)
-  * [Introduction](#introduction)
-  * [🚀 Getting Started](#-getting-started)
-  * [⚙️ Advanced Multisite Configuration](#️-advanced-multisite-configuration)
-  * [🏗️ Project Architecture](#️-project-architecture)
-  * [Development Workflow](#development-workflow)
-  * [Dashboard Development](#dashboard-development)
-  * [⏰ Task Scheduling](#-task-scheduling)
-  * [🗄️ MongoDB Utilities](#️-mongodb-utilities)
-  * [🚀 Pro Modules](#-pro-modules)
-  * [🌟 Features & Widgets](#-features--widgets)
-  * [🖼️ Image Helper Functions](#️-image-helper-functions)
-  * [🖌️ Theming](#️-theming)
-  * [⚙️ Package Scripts](#️-package-scripts)
-  * [Additional Resources](#additional-resources)
-  * [Licensing](#licensing)
 
 ---
 
@@ -136,7 +133,7 @@ cd your-assembly-apollo-project
 npm install
 ```
 
-The `postinstall` script automatically installs dependencies for both `backend` and `frontend` folders.
+This repo is setup as a npm workspace. This means that the dependencies for both `backend` and `frontend` folders are installed at root level.
 
 #### 2. Configure Required Settings
 
@@ -1752,9 +1749,9 @@ This approach is useful for:
 
 This template includes ApostropheCMS Pro modules pre-installed and ready to use. Most activate automatically based on your environment configuration.
 
-## 💎 Available Pro Modules
+### 💎 Available Pro Modules
 
-### 🔐 Advanced Permissions
+#### 🔐 Advanced Permissions
 **Enterprise-grade access control for teams and organizations**
 
 Take control of your content with granular permissions that go far beyond basic user roles. Perfect for large teams, agencies, and organizations that need sophisticated access management.
@@ -1773,7 +1770,7 @@ Take control of your content with granular permissions that go far beyond basic 
 
 ---
 
-### 🌍 Translation & Localization Suite
+#### 🌍 Translation & Localization Suite
 **Automated translation and localization management for global content**
 
 While ApostropheCMS includes built-in content localization for managing multilingual sites, these Pro modules supercharge your international workflow with automated translation capabilities. Perfect for international businesses and organizations serving diverse audiences who need to scale their multilingual content efficiently.
@@ -1801,7 +1798,7 @@ The template will automatically enable the appropriate translation modules and c
 
 ---
 
-### 🎨 Visual Design & Customization
+#### 🎨 Visual Design & Customization
 **In-context design tools for real-time visual customization**
 
 Empower content editors and designers to customize the visual appearance of your site without touching code. Perfect for agencies, white-label solutions, and sites that need flexible theming capabilities.
@@ -1820,7 +1817,7 @@ Empower content editors and designers to customize the visual appearance of your
 
 ---
 
-### 🔍 SEO & Performance Optimization
+#### 🔍 SEO & Performance Optimization
 **Automated SEO optimization for better search visibility**
 
 Enhance your content's search engine performance with intelligent optimization tools that work across all languages and content types.
@@ -1842,7 +1839,7 @@ The template will automatically enable the SEO Assistant modules and configure t
 
 ---
 
-### 📚 Document Management & Versioning
+#### 📚 Document Management & Versioning
 **Professional document lifecycle management**
 
 Maintain complete control over your content lifecycle with enterprise-grade versioning and template management. Essential for organizations with strict content governance requirements.
@@ -1861,7 +1858,7 @@ Maintain complete control over your content lifecycle with enterprise-grade vers
 
 ---
 
-### 👥 User Registration & Management
+#### 👥 User Registration & Management
 **Self-service user registration and account management**
 
 Enable public user registration and self-service account management for member sites, communities, and customer portals.
@@ -1880,7 +1877,7 @@ Enable public user registration and self-service account management for member s
 
 ---
 
-## ⚡ Getting Started with Pro Modules
+### ⚡ Getting Started with Pro Modules
 
 Most Pro modules are automatically activated based on your environment configuration. Simply add any required API keys or configuration settings as environment variables, then restart your application.
 
