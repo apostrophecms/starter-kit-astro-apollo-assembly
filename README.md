@@ -133,7 +133,7 @@ cd your-assembly-apollo-project
 npm install
 ```
 
-This repo is setup as a npm workspace. This means that the dependencies for both `backend` and `frontend` folders are installed at root level.
+This repo takes advantage of npm namespaces. This means that the dependencies for both `backend` and `frontend` folders are installed at root level.
 
 #### 2. Configure Required Settings
 
@@ -231,9 +231,7 @@ openssl rand -hex 32
 
 **What it does:** Maps subdomains like `dashboard.localhost` and `company1.localhost` to your local machine (`127.0.0.1`).
 
-**Why you need it:** While Chrome automatically resolves all subdomains of `localhost` to your computer, other browsers and Cypress tests require explicit entries in your hosts file.
-
-**For Mac users:** Even when using Chrome, if Cypress tests fail with `getaddrinfo ENOTFOUND`, you need to configure your hosts file.
+**Why you need it:** While Chrome automatically resolves all subdomains of `localhost` to your computer, other browsers require explicit entries in your hosts file.
 
 Add these lines to `/etc/hosts`:
 
