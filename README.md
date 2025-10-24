@@ -1887,11 +1887,7 @@ This project is more opinionated than some of our other starter kits and uses th
 
 ### Widgets
 
-This project provides the core ApostropheCMS widgets, plus seven additional custom widgets:
-
-**Layout Widgets:**
-- **rows-widget**: Adds rows with varying numbers of columns for responsive content layout
-- **grid-layout-widget**: Adds custom or predefined CSS grid-based layouts
+This project provides the core ApostropheCMS widgets, plus five additional custom widgets:
 
 **Content Widgets:**
 - **hero-widget**: A customizable hero section with options for color gradient, image, or video backgrounds
