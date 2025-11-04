@@ -6,11 +6,11 @@
   "type": "module",
   "scripts": {
     "start": "node app",
+    "serve": "APOS_UPLOADFS_ASSETS=1 NODE_ENV=production npm run start",
     "dev": "APOS_EXTERNAL_FRONT_KEY=dev nodemon",
-    "build": "NODE_ENV=production node app --all-sites @apostrophecms/asset:build",
-    "serve": "NODE_ENV=production node app",
+    "build": "./deployment/build",
     "release": "npm install && npm run build && npm run migrate",
-    "migrate": "NODE_ENV=production node app --all-sites @apostrophecms/migration:migrate",
+    "migrate": "./deployment/migrate",
     "test": "npm run lint",
     "lint": "eslint . && stylelint {dashboard,sites}/modules/**/*.{scss,vue}"
   },

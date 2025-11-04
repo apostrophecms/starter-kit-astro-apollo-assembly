@@ -15,7 +15,12 @@ export default defineConfig({
   }),
   integrations: [
     apostrophe({
-      aposHost: 'http://dashboard.localhost:3000',
+      // Yes, just localhost. This is the simplest and most efficient mode of operation:
+      // apostrophe and astro on the same server. Individual sites such as the dashboard
+      // or a particular customer site will still automatically be distinguished via the Host header.
+      // Don't try to use dashboard.localhost here as that will confuse deployment environments
+      // where subdomains of localhost don't automatically work
+      aposHost: 'http://localhost:3000',
       widgetsMapping: './src/widgets',
       templatesMapping: './src/templates',
       includeResponseHeaders: [
