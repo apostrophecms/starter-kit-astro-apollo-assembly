@@ -154,6 +154,8 @@ export default async function (site) {
 
       '@apostrophecms-pro/document-versions': {},
       '@apostrophecms-pro/doc-template-library': {},
+      '@apostrophecms-pro/section-template-library': {},
+      '@apostrophecms-pro/section-template-tag': {},
       '@apostrophecms-pro/palette': {}
     }
   };

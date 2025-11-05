@@ -20,7 +20,7 @@
     "url": "https://github.com/apostrophecms/starter-kit-astro-apollo-assembly"
   },
   "dependencies": {
-    "@apostrophecms/apostrophe-astro": "^1.5.2",
+    "@apostrophecms/apostrophe-astro": "^1.7.0",
     "@astrojs/node": "^9.0.0",
     "@fortawesome/fontawesome-svg-core": "^6.6.0",
     "@fortawesome/free-brands-svg-icons": "^6.6.0",

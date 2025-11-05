@@ -6,11 +6,11 @@
   "type": "module",
   "scripts": {
     "start": "node app",
+    "serve": "APOS_UPLOADFS_ASSETS=1 NODE_ENV=production npm run start",
     "dev": "APOS_EXTERNAL_FRONT_KEY=dev nodemon",
-    "build": "NODE_ENV=production node app --all-sites @apostrophecms/asset:build",
-    "serve": "NODE_ENV=production node app",
+    "build": "./deployment/build",
     "release": "npm install && npm run build && npm run migrate",
-    "migrate": "NODE_ENV=production node app --all-sites @apostrophecms/migration:migrate",
+    "migrate": "./deployment/migrate",
     "test": "npm run lint",
     "lint": "eslint . && stylelint {dashboard,sites}/modules/**/*.{scss,vue}"
   },
@@ -31,15 +31,16 @@
     "@apostrophecms-pro/document-versions": "^2.6.0",
     "@apostrophecms-pro/import-export-translation": "^1.0.3",
     "@apostrophecms-pro/multisite": "^4.4.1",
-    "@apostrophecms-pro/multisite-dashboard": "^1.4.3",
+    "@apostrophecms-pro/multisite-dashboard": "^1.5.0",
     "@apostrophecms-pro/palette": "^4.8.1",
+    "@apostrophecms-pro/section-template-library": "^1.0.0",
     "@apostrophecms-pro/seo-assistant": "^1.2.1",
     "@apostrophecms/favicon": "^1.1.3",
     "@apostrophecms/mongodb-snapshot": "^1.1.0",
     "@apostrophecms/open-graph": "^1.2.3",
     "@apostrophecms/seo": "^1.3.1",
     "@apostrophecms/vite": "^1.1.0",
-    "apostrophe": "^4.21.0",
+    "apostrophe": "^4.23.0",
     "normalize.css": "^8.0.1"
   },
   "devDependencies": {

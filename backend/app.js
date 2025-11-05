@@ -35,6 +35,10 @@ export default await multisite({
   // after a zero-downtime reload completes. Defaults to 60000 (1 minute).
   oldInstanceGracePeriod: 60000,
 
+  orphan(req, res) {
+    console.error(`method: ${req.method} url: ${req.url} host: ${req.host} host header: ${ req.headers.host}`);
+    return res.status(404).send('not found');
+  },
   sites,
   dashboard
 });
