@@ -71,23 +71,22 @@ This starter kit provides a complete enterprise multisite solution:
 ---
 <!-- omit in toc -->
 ## Table of Contents
-- [Apollo Starter Kit for ApostropheCMS Assembly + Astro Integration (Pro Edition)](#apollo-starter-kit-for-apostrophecms-assembly--astro-integration-pro-edition)
-  - [Introduction](#introduction)
-  - [🚀 Getting Started](#-getting-started)
-  - [⚙️ Advanced Multisite Configuration](#️-advanced-multisite-configuration)
-  - [🏗️ Project Architecture](#️-project-architecture)
-  - [🔧 Development Workflow](#-development-workflow)
-  - [📊 Dashboard Development](#-dashboard-development)
-  - [⏰ Task Scheduling](#-task-scheduling)
-  - [🗄️ MongoDB Utilities](#️-mongodb-utilities)
-  - [🚀 Pro Modules](#-pro-modules)
-  - [🌟 Features \& Widgets](#-features--widgets)
-  - [🖼️ Image Helper Functions](#️-image-helper-functions)
-  - [🖌️ Theming](#️-theming)
-  - [⚙️ Package Scripts](#️-package-scripts)
-  - [📚 Additional Resources](#-additional-resources)
-  - [⚖️ Licensing](#️-licensing)
-
+* [Apollo Starter Kit for ApostropheCMS Assembly + Astro Integration (Pro Edition)](#apollo-starter-kit-for-apostrophecms-assembly--astro-integration-pro-edition)
+  * [Introduction](#introduction)
+  * [🚀 Getting Started](#-getting-started)
+  * [⚙️ Advanced Multisite Configuration](#️-advanced-multisite-configuration)
+  * [🏗️ Project Architecture](#️-project-architecture)
+  * [🔧 Development Workflow](#-development-workflow)
+  * [📊 Dashboard Development](#-dashboard-development)
+  * [⏰ Task Scheduling](#-task-scheduling)
+  * [🗄️ MongoDB Utilities](#️-mongodb-utilities)
+  * [🚀 Pro Modules](#-pro-modules)
+  * [🌟 Features \& Widgets](#-features--widgets)
+  * [🖼️ Image Helper Functions](#️-image-helper-functions)
+  * [🖌️ Theming](#️-theming)
+  * [⚙️ Package Scripts](#️-package-scripts)
+  * [📚 Additional Resources](#-additional-resources)
+  * [⚖️ Licensing](#️-licensing)
 
 ---
 
@@ -102,24 +101,25 @@ This project combines three technologies:
 What sets this apart from typical headless CMS setups is the [apostrophe-astro](https://github.com/apostrophecms/apostrophe-astro) package, which enables full use of the ApostropheCMS Admin UI with in-context editing while automating content fetching from the backend.
 
 ---
+
 ## 🚀 Getting Started
 
 ### Prerequisites
 
 **Required:**
-- Node.js v20 or later (v22 recommended)
-- MongoDB v6.0 or later ([setup guide](https://docs.apostrophecms.org/guide/development-setup.html))
-- ApostropheCMS Assembly license with access to `@apostrophecms-pro/multisite` and Pro modules
+* Node.js v20 or later (v22 recommended)
+* MongoDB v6.0 or later ([setup guide](https://docs.apostrophecms.org/guide/development-setup.html))
+* ApostropheCMS Assembly license with access to `@apostrophecms-pro/multisite` and Pro modules
 
 **Windows Users:**
-- Windows Subsystem for Linux 2 (WSL2) required for ApostropheCMS development ([setup guide](https://docs.apostrophecms.org/cookbook/windows-development.html))
+* Windows Subsystem for Linux 2 (WSL2) required for ApostropheCMS development ([setup guide](https://docs.apostrophecms.org/cookbook/windows-development.html))
 
 **For Local Testing:**
-- `/etc/hosts` configuration for subdomain testing (details below)
+* `/etc/hosts` configuration for subdomain testing (details below)
 
 **Optional (for Pro features):**
-- OpenAI API key (for SEO Assistant)
-- DeepL, Google Translate, or Azure Translator API key (for automated translation)
+* OpenAI API key (for SEO Assistant)
+* DeepL, Google Translate, or Azure Translator API key (for automated translation)
 
 ### Quick Start
 
@@ -161,9 +161,9 @@ await multisite({
 **What it does:** The `domains.js` file defines the base domains for your Assembly platform across different environments (development, staging, production). The `@apostrophecms-pro/multisite` module uses these to construct full URLs for each site.
 
 **Why you need it:** Each site you create gets a subdomain of these base domains. For example, with a site shortname of `acme` and domains configured as shown below, the site automatically works at:
-- `http://acme.localhost:3000` (development)
-- `https://acme.staging.your-domain.com` (staging)
-- `https://acme.your-domain.com` (production, before you set a custom production hostname)
+* `http://acme.localhost:3000` (development)
+* `https://acme.staging.your-domain.com` (staging)
+* `https://acme.your-domain.com` (production, before you set a custom production hostname)
 
 Edit `domains.js` in the `backend/` directory:
 
@@ -177,15 +177,15 @@ export default {
 
 **Environment configuration details:**
 
-- **`dev`**: Your local development environment. Leave this as `localhost:3000` unless you have a specific reason to change it. The first environment listed is always treated as the local debugging environment.
+* **`dev`**: Your local development environment. Leave this as `localhost:3000` unless you have a specific reason to change it. The first environment listed is always treated as the local debugging environment.
 
-- **`staging`**: Your staging environment domain. If you're using ApostropheCMS Assembly hosting, we configure this for you. For self-hosting, you'll need:
-  - A DNS wildcard `A` record pointing `*.staging.your-domain.com` to your staging server
-  - A wildcard SSL certificate for `*.staging.your-domain.com`
+* **`staging`**: Your staging environment domain. If you're using ApostropheCMS Assembly hosting, we configure this for you. For self-hosting, you'll need:
+  * A DNS wildcard `A` record pointing `*.staging.your-domain.com` to your staging server
+  * A wildcard SSL certificate for `*.staging.your-domain.com`
 
-- **`prod`**: Your production environment domain. Similar to staging, if we're hosting for you, this is preconfigured. For self-hosting, you need:
-  - A DNS wildcard `A` record pointing `*.your-domain.com` to your production server
-  - A wildcard SSL certificate for `*.your-domain.com`
+* **`prod`**: Your production environment domain. Similar to staging, if we're hosting for you, this is preconfigured. For self-hosting, you need:
+  * A DNS wildcard `A` record pointing `*.your-domain.com` to your production server
+  * A wildcard SSL certificate for `*.your-domain.com`
 
 > **About production hostnames:** While sites initially use subdomains like `acme.your-domain.com`, you can later assign custom production domains (like `www.acme.com`) via the dashboard UI. The base domain still provides the "pre-production" hostname for early content creation.
 
@@ -195,8 +195,8 @@ export default {
 
 **What they do:** These keys secure your multisite platform:
 
-- **`disabledFileKey`**: Used when disabling access to files in the local backend. This prevents unauthorized file access between sites.
-- **`secret`**: Encrypts login session data. Each Assembly project should have a unique secret.
+* **`disabledFileKey`**: Used when disabling access to files in the local backend. This prevents unauthorized file access between sites.
+* **`secret`**: Encrypts login session data. Each Assembly project should have a unique secret.
 
 **Why you need them:** The default `CHANGEME` values are insecure. Replace them with random strings before deploying or sharing your code.
 
@@ -264,10 +264,10 @@ node app @apostrophecms/user:add admin admin --site=dashboard
 You'll be prompted to enter a password. Choose a strong password and save it securely.
 
 **Understanding the command:**
-- `@apostrophecms/user:add` - The Apostrophe task name
-- First `admin` - The username
-- Second `admin` - The role (admin role required for dashboard access)
-- `--site=dashboard` - Specifies this user belongs to the dashboard site
+* `@apostrophecms/user:add` - The Apostrophe task name
+* First `admin` - The username
+* Second `admin` - The role (admin role required for dashboard access)
+* `--site=dashboard` - Specifies this user belongs to the dashboard site
 
 > **Important:** In a multisite environment, command line tasks always require the `--site` flag. For the dashboard, use `--site=dashboard`. For individual sites, use any valid hostname (e.g., `--site=company1.localhost`), or use `--all-sites` to run the task on every site except the dashboard.
 
@@ -326,9 +326,9 @@ cd frontend && npm run dev
 
 **What's happening:**
 
-- The backend starts on `http://localhost:3000` and handles content, users, and all database operations
-- The frontend starts on `http://localhost:4321` (Astro default) and handles rendering
-- The `npm run dev` scripts automatically handle authentication between frontend and backend by setting `APOS_EXTERNAL_FRONT_KEY` to "dev"
+* The backend starts on `http://localhost:3000` and handles content, users, and all database operations
+* The frontend starts on `http://localhost:4321` (Astro default) and handles rendering
+* The `npm run dev` scripts automatically handle authentication between frontend and backend by setting `APOS_EXTERNAL_FRONT_KEY` to "dev"
 
 **For production or custom commands:**
 
@@ -362,40 +362,40 @@ Visit `http://dashboard.localhost:4321/login` and log in with the admin credenti
 1. Click "Sites" in the admin bar at the top of the page
 2. Click the "+ New Site" button
 3. Fill in the required fields:
-   - **Shortname**: A unique identifier (e.g., `company1`). This becomes the subdomain.
-   - **Theme**: Choose `default` or `demo` (you can add more themes later)
-   - **Admin Password**: Set a password for this site's admin account
+   * **Shortname**: A unique identifier (e.g., `company1`). This becomes the subdomain.
+   * **Theme**: Choose `default` or `demo` (you can add more themes later)
+   * **Admin Password**: Set a password for this site's admin account
 4. Click "Save"
 
 **What just happened:**
 
 When you save a site, Assembly automatically:
-- Creates a new MongoDB database for the site (e.g., `your-project-company1`)
-- Creates an admin user for the site with the password you specified
-- Makes the site accessible at `http://company1.localhost:3000`
-- Associates the site with the theme you selected
+* Creates a new MongoDB database for the site (e.g., `your-project-company1`)
+* Creates an admin user for the site with the password you specified
+* Makes the site accessible at `http://company1.localhost:3000`
+* Associates the site with the theme you selected
 
 **Access your new site:**
 
 Visit `http://company1.localhost:3000` and log in with:
-- **Username**: `admin`
-- **Password**: The admin password you set when creating the site
+* **Username**: `admin`
+* **Password**: The admin password you set when creating the site
 
 **Important distinctions:**
 
-- **Dashboard admin**: Can access the dashboard and all sites, manages the platform
-- **Site admin**: Can only access their specific site, manages content and users for that site
-- Each site has completely isolated content, media, and user accounts
+* **Dashboard admin**: Can access the dashboard and all sites, manages the platform
+* **Site admin**: Can only access their specific site, manages content and users for that site
+* Each site has completely isolated content, media, and user accounts
 
 > **Content visibility note:** If you access sites while logged out, you won't see your content edits unless you've used the "Commit" button to make them live. Draft content is only visible to logged-in editors.
 
 #### 8. Create Additional Sites
 
 Repeat step 7 to create more sites (e.g., `company2`, `company3`). Each site:
-- Gets its own isolated database
-- Has its own admin and user accounts
-- Can use a different theme
-- Maintains completely separate content
+* Gets its own isolated database
+* Has its own admin and user accounts
+* Can use a different theme
+* Maintains completely separate content
 
 **Remember:** Add each new site's subdomain to your `/etc/hosts` file for local testing:
 
@@ -405,10 +405,10 @@ Repeat step 7 to create more sites (e.g., `company2`, `company3`). Each site:
 
 **What you can do now:**
 
-- Log in to each site independently and create different content
-- Test how themes affect appearance by creating sites with different themes
-- Experience how each site operates as a completely independent CMS
-- Practice managing sites from the dashboard (editing, archiving, duplicating)
+* Log in to each site independently and create different content
+* Test how themes affect appearance by creating sites with different themes
+* Experience how each site operates as a completely independent CMS
+* Practice managing sites from the dashboard (editing, archiving, duplicating)
 
 ---
 
@@ -438,14 +438,14 @@ await multisite({
 
 **Example:** With a site shortname of `cars` and the configuration above:
 
-- **Without suffix**: `http://cars.localhost:3000`, `https://cars.staging.your-domain.com`
-- **With suffix**: `http://cars-assembly.localhost:3000`, `https://cars-assembly.staging.your-domain.com`
+* **Without suffix**: `http://cars.localhost:3000`, `https://cars.staging.your-domain.com`
+* **With suffix**: `http://cars-assembly.localhost:3000`, `https://cars-assembly.staging.your-domain.com`
 
 **Important notes:**
 
-- This suffix applies only when the hostname is determined by the `shortName` field. If you configure a custom production hostname for a site, it will be used exactly as given.
-- Your dashboard is also affected. With the example above, the dashboard becomes `https://dashboard-assembly.staging.your-domain.com`
-- If you combine `shortNameSuffix` with `dashboardShortName` (see below), both are applied to create the complete dashboard subdomain.
+* This suffix applies only when the hostname is determined by the `shortName` field. If you configure a custom production hostname for a site, it will be used exactly as given.
+* Your dashboard is also affected. With the example above, the dashboard becomes `https://dashboard-assembly.staging.your-domain.com`
+* If you combine `shortNameSuffix` with `dashboardShortName` (see below), both are applied to create the complete dashboard subdomain.
 
 > **Not supported by Assembly Hosting:** This option is not available when using ApostropheCMS Assembly Hosting. Contact us if this is important for your project.
 
@@ -466,16 +466,18 @@ await multisite({
 
 **Example:** With a site shortname of `cars`, the `fr` locale, and "Separate Host" enabled:
 
-- **Default (dot separator)**: `fr.cars.your-domain.com`
-- **With dash separator**: `fr-cars.your-domain.com`
+* **Default (dot separator)**: `fr.cars.your-domain.com`
+* **With dash separator**: `fr-cars.your-domain.com`
 
 **Important notes:**
 
-- This option applies only when the hostname is determined by the `shortName` field. If you configure a custom production hostname for a specific locale, it will be used exactly as given.
-- Your configuration won't apply immediately to existing sites. You must update existing site records to apply the changes:
+* This option applies only when the hostname is determined by the `shortName` field. If you configure a custom production hostname for a specific locale, it will be used exactly as given.
+* Your configuration won't apply immediately to existing sites. You must update existing site records to apply the changes:
+
   ```bash
   node app site:touch --site=dashboard
   ```
+
   This command requires the `touch` task. If you don't have it, update the `apostrophe` module to the latest 3.x version.
 
 > **Not supported by Assembly Hosting:** This option is not available when using ApostropheCMS Assembly Hosting.
@@ -497,13 +499,14 @@ await multisite({
 
 **Example:** With the configuration above, your dashboard becomes available at:
 
-- `http://admin.localhost:3000` (development)
-- `https://admin.staging.your-domain.com` (staging)
-- `https://admin.your-domain.com` (production)
+* `http://admin.localhost:3000` (development)
+* `https://admin.staging.your-domain.com` (staging)
+* `https://admin.your-domain.com` (production)
 
 **Important notes:**
 
-- If `shortNameSuffix` is also set, the two options are combined. For example:
+* If `shortNameSuffix` is also set, the two options are combined. For example:
+
   ```javascript
   await multisite({
     dashboardShortName: 'admin',
@@ -511,6 +514,7 @@ await multisite({
     // ...
   });
   ```
+
   Results in: `admin-platform.localhost:3000`, `admin-platform.staging.your-domain.com`, etc.
 
 > **Not supported by Assembly Hosting:** This option is not available when using ApostropheCMS Assembly Hosting. Contact us if this is a concern for your project.
@@ -523,12 +527,12 @@ Dashboard administrators can configure multiple locales for each site from the `
 
 For each locale you add to a site, you can configure:
 
-- **Name**: The locale code (e.g., `fr`, `es`, `de`)
-- **Label**: A human-readable name (e.g., "French", "Spanish", "German")
-- **Prefix**: A URL path prefix (e.g., `/fr`) for distinguishing locales on the same domain
-- **Separate Host**: Whether this locale should use its own subdomain
-- **Separate Production Hostname**: A custom production domain for this locale (e.g., `www.example.fr`)
-- **Staging Subdomain**: Optional custom staging subdomain for testing production hostname configurations
+* **Name**: The locale code (e.g., `fr`, `es`, `de`)
+* **Label**: A human-readable name (e.g., "French", "Spanish", "German")
+* **Prefix**: A URL path prefix (e.g., `/fr`) for distinguishing locales on the same domain
+* **Separate Host**: Whether this locale should use its own subdomain
+* **Separate Production Hostname**: A custom production domain for this locale (e.g., `www.example.fr`)
+* **Staging Subdomain**: Optional custom staging subdomain for testing production hostname configurations
 
 #### How Locale URLs Work
 
@@ -547,9 +551,9 @@ Let's say you create a site with shortname `company` and add a French locale wit
 
 **Resulting URLs:**
 
-- **Development**: `http://fr.company.localhost:3000`
-- **Staging**: `https://fr.company.staging.your-domain.com`
-- **Production**: `https://fr.company.your-domain.com` and `https://www.example.fr`
+* **Development**: `http://fr.company.localhost:3000`
+* **Staging**: `https://fr.company.staging.your-domain.com`
+* **Production**: `https://fr.company.your-domain.com` and `https://www.example.fr`
 
 #### Using Prefixes Instead of Subdomains
 
@@ -557,17 +561,17 @@ If you set `Separate Host` to `false` and provide a `Prefix` of `/fr`:
 
 **Resulting URLs:**
 
-- **Development**: `http://company.localhost:3000/fr`
-- **Staging**: `https://company.staging.your-domain.com/fr`
-- **Production**: `https://company.your-domain.com/fr`
+* **Development**: `http://company.localhost:3000/fr`
+* **Staging**: `https://company.staging.your-domain.com/fr`
+* **Production**: `https://company.your-domain.com/fr`
 
 **Sharing Production Domains:**
 
 Prefixes allow multiple locales to share the same `Separate Production Hostname`. For example:
 
-- English: `www.example.com` (no prefix, default locale)
-- French: `www.example.com/fr` (prefix: `/fr`)
-- German: `www.example.com/de` (prefix: `/de`)
+* English: `www.example.com` (no prefix, default locale)
+* French: `www.example.com/fr` (prefix: `/fr`)
+* German: `www.example.com/de` (prefix: `/de`)
 
 > **Important:** You can have only one locale with no prefix **and** no separate host - this becomes the default locale for the site.
 
@@ -575,7 +579,7 @@ Prefixes allow multiple locales to share the same `Separate Production Hostname`
 
 The `Staging Subdomain` field allows you to test your production hostname configuration before going live. If you set this to `test-fr`, your staging URL becomes:
 
-- `https://test-fr.staging.your-domain.com`
+* `https://test-fr.staging.your-domain.com`
 
 This is useful when you want to verify that DNS, SSL certificates, and hostname routing work correctly with your planned production domain structure.
 
@@ -583,9 +587,9 @@ This is useful when you want to verify that DNS, SSL certificates, and hostname 
 
 You can make individual locales private, restricting access to logged-in users only. This is useful for:
 
-- Beta testing new locale content before public launch
-- Providing member-only content in specific languages
-- Maintaining internal documentation in different languages
+* Beta testing new locale content before public launch
+* Providing member-only content in specific languages
+* Maintaining internal documentation in different languages
 
 #### Configuring Private Locales
 
@@ -621,16 +625,16 @@ export default {
 
 **Configuration options:**
 
-- `privateByDefault: true` - All new locales created will be private by default
-- `privateByDefault: false` (or omitted) - All new locales will be public by default
+* `privateByDefault: true` - All new locales created will be private by default
+* `privateByDefault: false` (or omitted) - All new locales will be public by default
 
 The `private` setting can always be changed later through the dashboard when editing site locales, regardless of the default setting.
 
 #### How Private Locales Work
 
-- **Logged-out users**: Cannot access any content in private locales. Attempts to access private locale URLs result in redirects or 404 errors.
-- **Logged-in users**: Can access private locales normally, subject to their regular permissions within the site.
-- **Site admins**: Can toggle locales between private and public at any time through the dashboard.
+* **Logged-out users**: Cannot access any content in private locales. Attempts to access private locale URLs result in redirects or 404 errors.
+* **Logged-in users**: Can access private locales normally, subject to their regular permissions within the site.
+* **Site admins**: Can toggle locales between private and public at any time through the dashboard.
 
 This provides flexible content access control at the locale level without requiring complex permission configurations.
 
@@ -641,23 +645,23 @@ This provides flexible content access control at the locale level without requir
 This project combines three powerful systems:
 
 **Backend (ApostropheCMS Assembly):**
-- Manages multiple sites from a central dashboard
-- Handles all content, users, and configuration
-- Provides REST API for the frontend
-- No templates (Astro handles all rendering)
-- Pro modules for enterprise features
+* Manages multiple sites from a central dashboard
+* Handles all content, users, and configuration
+* Provides REST API for the frontend
+* No templates (Astro handles all rendering)
+* Pro modules for enterprise features
 
 **Sites (Apollo Design + Pro Features):**
-- Each site created through the dashboard gets the Apollo design system
-- Beautiful Bulma-based styling with custom widgets and layouts
-- Pro features work independently for each site
-- Themes allow different designs across sites
+* Each site created through the dashboard gets the Apollo design system
+* Beautiful Bulma-based styling with custom widgets and layouts
+* Pro features work independently for each site
+* Themes allow different designs across sites
 
 **Frontend (Astro):**
-- Single unified codebase serves all sites
-- Passes hostname to backend to fetch correct content
-- Renders templates and widgets dynamically with Apollo styling
-- Provides in-context editing via `apostrophe-astro` integration
+* Single unified codebase serves all sites
+* Passes hostname to backend to fetch correct content
+* Renders templates and widgets dynamically with Apollo styling
+* Provides in-context editing via `apostrophe-astro` integration
 
 ### Project Structure
 
@@ -698,31 +702,31 @@ For more details on the backend architecture, see the [Assembly Essentials docum
 If you've worked with ApostropheCMS Assembly, the backend structure will look familiar. Custom modules for pages, pieces, and widgets are in `backend/sites/modules/`, while dashboard-specific modules are in `backend/dashboard/modules/`.
 
 **What stays the same:**
-- Module registration in `backend/sites/index.js`
-- Page types added to modules
-- Most module configuration settings for Admin UI, request routing, and MongoDB interaction
-- Pro modules available across all sites
+* Module registration in `backend/sites/index.js`
+* Page types added to modules
+* Most module configuration settings for Admin UI, request routing, and MongoDB interaction
+* Pro modules available across all sites
 
 **Key differences from single-site ApostropheCMS:**
-- **No templates in modules** - Stylesheets, templates (implemented as Astro components), and client-side JavaScript go in the Astro project instead
-- **No template helpers** - Skip `helper()`, `extendHelpers()`, `components()`, and `renderRoutes()` functions
-- **Command line tasks require `--site`** - Always specify which site or use `--all-sites`
-- **Schema sharing** - Some widget schemas have been moved to `backend/lib/schema-mixins` for reuse
+* **No templates in modules** - Stylesheets, templates (implemented as Astro components), and client-side JavaScript go in the Astro project instead
+* **No template helpers** - Skip `helper()`, `extendHelpers()`, `components()`, and `renderRoutes()` functions
+* **Command line tasks require `--site`** - Always specify which site or use `--all-sites`
+* **Schema sharing** - Some widget schemas have been moved to `backend/lib/schema-mixins` for reuse
 
 ### For Astro Developers
 
 The Astro portion follows standard conventions with components in `src` and assets in `public`. The Astro frontend treats all sites the same - it receives a hostname and fetches appropriate content from the backend.
 
 **What stays the same:**
-- Standard Astro project organization
-- Normal component and template patterns
-- Client-side asset management
+* Standard Astro project organization
+* Normal component and template patterns
+* Client-side asset management
 
 **Key differences from typical Astro:**
-- **Single route system** - One `[...slug].astro` file handles all routing for all sites
-- **Template mapping** - Pages map to templates in the `templates` folder
-- **Widget system** - Widgets map to components in the `widgets` folder
-- **Required configuration** - The `apostrophe` integration and `output: 'server'` settings must remain
+* **Single route system** - One `[...slug].astro` file handles all routing for all sites
+* **Template mapping** - Pages map to templates in the `templates` folder
+* **Widget system** - Widgets map to components in the `widgets` folder
+* **Required configuration** - The `apostrophe` integration and `output: 'server'` settings must remain
 
 ### Routing and Templates
 
@@ -744,9 +748,9 @@ This architecture allows widget templates to be used outside specialized `area` 
 ### Configuration Notes
 
 The `astro.config.mjs` includes required settings for ApostropheCMS integration:
-- `apostrophe` integration in the integrations array
-- `output: 'server'` for server-side rendering
-- Custom preprocessor options (this project uses a different SASS compiler for [Bulma CSS framework](https://bulma.io/) compatibility)
+* `apostrophe` integration in the integrations array
+* `output: 'server'` for server-side rendering
+* Custom preprocessor options (this project uses a different SASS compiler for [Bulma CSS framework](https://bulma.io/) compatibility)
 
 Read more in the [`apostrophe-astro` documentation](https://github.com/apostrophecms/apostrophe-astro).
 
@@ -759,6 +763,7 @@ Read more in the [`apostrophe-astro` documentation](https://github.com/apostroph
 Site-specific modules live in `backend/sites/modules/`, while dashboard-specific modules live in `backend/dashboard/modules/`. Configuration that applies to all sites goes in `backend/sites/index.js`.
 
 **Command line tasks always require `--site`:**
+
 ```bash
 # For dashboard
 node app @apostrophecms/user:list --site=dashboard
@@ -774,10 +779,10 @@ node app @apostrophecms/migration:migrate --all-sites
 
 The Astro frontend treats all sites the same - it receives a hostname and fetches appropriate content from the backend. Your custom components and styling go in the standard Astro locations:
 
-- **Templates**: `frontend/src/templates/` (mapped to page types)
-- **Widgets**: `frontend/src/widgets/` (mapped to widget types)
-- **Components**: `frontend/src/components/` (shared across templates)
-- **Styles**: Add to theme modules or component files
+* **Templates**: `frontend/src/templates/` (mapped to page types)
+* **Widgets**: `frontend/src/widgets/` (mapped to widget types)
+* **Components**: `frontend/src/components/` (shared across templates)
+* **Styles**: Add to theme modules or component files
 
 **Theme-specific assets:**
 Place stylesheets in `backend/sites/modules/theme-{name}/ui/src/index.scss`. ApostropheCMS bundles these and makes them available to the Astro frontend based on the site's theme.
@@ -788,6 +793,7 @@ For JavaScript, use Astro's `<script>` tags or client directives directly in you
 
 1. Add theme definition to `themes.js` in the `backend/` directory
 2. Create `backend/sites/lib/theme-{name}.js`:
+
 ```javascript
 export default function(site, config) {
   config.modules = {
@@ -796,17 +802,17 @@ export default function(site, config) {
   };
 }
 ```
-- Create and configure the `backend/sites/modules/theme-{name}/`
+* Create and configure the `backend/sites/modules/theme-{name}/`
 
 ### Testing Multiple Sites
 
 Create test sites via the dashboard with different shortnames (e.g., `test1`, `test2`, `test3`). Remember to add entries to `/etc/hosts` for each new subdomain.
 
 Each site maintains completely separate:
-- Content and media
-- User accounts (except dashboard admins)
-- Configuration (within theme constraints)
-- Pro module settings (like Palette customizations)
+* Content and media
+* User accounts (except dashboard admins)
+* Configuration (within theme constraints)
+* Pro module settings (like Palette customizations)
 
 ## 📊 Dashboard Development
 
@@ -818,12 +824,12 @@ This starter kit includes the `@apostrophecms-pro/multisite-dashboard` extension
 
 **Enhanced Site Management:**
 
-- **Scrollable List View** - Sites are presented as a scrollable list instead of individual cards, making it easier to manage large numbers of sites
-- **Integrated Search** - A search box allows you to quickly find sites by name or other criteria
-- **Direct Site Access** - Each site in the list includes:
-  - A login link that takes you directly into that site's admin interface
-  - A link to navigate to the site's homepage
-  - Context menu access to additional actions
+* **Scrollable List View** - Sites are presented as a scrollable list instead of individual cards, making it easier to manage large numbers of sites
+* **Integrated Search** - A search box allows you to quickly find sites by name or other criteria
+* **Direct Site Access** - Each site in the list includes:
+  * A login link that takes you directly into that site's admin interface
+  * A link to navigate to the site's homepage
+  * Context menu access to additional actions
 
 **Template System:**
 
@@ -835,9 +841,9 @@ The dashboard extension adds a powerful templating feature for creating reusable
 4. **Time Savings** - Templates preserve all configuration, content, and settings, allowing you to quickly spin up pre-configured sites
 
 This is particularly useful for:
-- Creating starter configurations for different client types
-- Maintaining brand-specific templates with pre-loaded content
-- Providing demo sites that can be quickly duplicated for testing
+* Creating starter configurations for different client types
+* Maintaining brand-specific templates with pre-loaded content
+* Providing demo sites that can be quickly duplicated for testing
 
 ### How Dashboard Development Works
 
@@ -1002,6 +1008,7 @@ const { brandColor, siteName } = Astro.props.data.templateData;
 You can add additional functionality to the dashboard by creating custom modules in `backend/dashboard/modules/`:
 
 **Custom Reports:**
+
 ```javascript
 // backend/dashboard/modules/site-report/index.js
 export default {
@@ -1014,6 +1021,7 @@ export default {
 ```
 
 **Bulk Operations:**
+
 ```javascript
 // backend/dashboard/modules/bulk-operations/index.js
 export default {
@@ -1044,10 +1052,10 @@ When hosting with ApostropheCMS Assembly, you can schedule recurring tasks much 
 Assembly task scheduling is configured in `backend/app.js` when setting up the `@apostrophecms-pro/multisite` module. The scheduler runs tasks at specified intervals (hourly or daily) and uses distributed locking to ensure each task runs only once, even when your application is deployed across multiple servers.
 
 **Key benefits:**
-- **Distributed execution** - Tasks run once per schedule even with multiple application servers
-- **Site targeting** - Run tasks across all sites or just the dashboard
-- **Simple configuration** - No cron syntax or external schedulers needed
-- **Automatic locking** - Prevents duplicate execution when scaling horizontally
+* **Distributed execution** - Tasks run once per schedule even with multiple application servers
+* **Site targeting** - Run tasks across all sites or just the dashboard
+* **Simple configuration** - No cron syntax or external schedulers needed
+* **Automatic locking** - Prevents duplicate execution when scaling horizontally
 
 ### Configuration
 
@@ -1098,12 +1106,13 @@ await multisite({
 Tasks in the `all-sites` section run for every site in your platform (except the dashboard). This is equivalent to running the task with the `--all-sites` command-line flag.
 
 **Use cases:**
-- Syncing product catalogs across all customer sites
-- Collecting analytics data from each site
-- Clearing caches after content updates
-- Running scheduled content publications
+* Syncing product catalogs across all customer sites
+* Collecting analytics data from each site
+* Clearing caches after content updates
+* Running scheduled content publications
 
 **Example:**
+
 ```javascript
 tasks: {
   'all-sites': {
@@ -1119,12 +1128,13 @@ tasks: {
 Tasks in the `dashboard` section run only for the dashboard site. This is equivalent to running the task with `--site=dashboard`.
 
 **Use cases:**
-- Aggregating statistics across all sites
-- Generating platform-wide reports
-- Performing license checks
-- Managing platform-level configurations
+* Aggregating statistics across all sites
+* Generating platform-wide reports
+* Performing license checks
+* Managing platform-level configurations
 
 **Example:**
+
 ```javascript
 tasks: {
   dashboard: {
@@ -1139,29 +1149,33 @@ tasks: {
 
 Each task target (`all-sites` or `dashboard`) supports two frequencies:
 
-- **`hourly`** - Tasks run once per hour
-- **`daily`** - Tasks run once per day (at midnight UTC by default)
+* **`hourly`** - Tasks run once per hour
+* **`daily`** - Tasks run once per day (at midnight UTC by default)
 
 ### Task String Format
 
 Tasks are configured as strings that match the format you would use at the command line, but **without** the `node app` prefix.
 
 **Basic task:**
+
 ```javascript
 'module-name:task-name'
 ```
 
 **Task with parameters:**
+
 ```javascript
 'module-name:task-name --param1=value --param2=value'
 ```
 
 **Task with flags:**
+
 ```javascript
 'module-name:task-name --verbose --force'
 ```
 
 **Examples:**
+
 ```javascript
 tasks: {
   'all-sites': {
@@ -1230,12 +1244,14 @@ export default {
 You can test your scheduled tasks locally without waiting for the scheduled time:
 
 **Test hourly tasks:**
+
 ```bash
 cd backend
 node app tasks --frequency=hourly
 ```
 
 **Test daily tasks:**
+
 ```bash
 cd backend
 node app tasks --frequency=daily
@@ -1243,8 +1259,8 @@ node app tasks --frequency=daily
 
 **Important:** The task scheduler includes a guard to prevent tasks from running more than once within their scheduled interval. This means:
 
-- Hourly tasks won't run more than once per hour
-- Daily tasks won't run more than once per day
+* Hourly tasks won't run more than once per hour
+* Daily tasks won't run more than once per day
 
 If you run a test and immediately try to run it again, the task will be skipped with a message indicating it already ran recently.
 
@@ -1279,17 +1295,17 @@ This ensures each task runs exactly once per schedule, regardless of how many se
 **Task Logging:**
 
 All task executions are logged to the `aposTaskLog` collection in your dashboard database. Each log entry includes:
-- Task name
-- Execution timestamp
-- Server that executed the task
-- Exit code (0 for success, non-zero for errors)
+* Task name
+* Execution timestamp
+* Server that executed the task
+* Exit code (0 for success, non-zero for errors)
 
 **Error Handling:**
 
 If a task fails:
-- The error is logged to the `aposTaskLog` collection
-- The task will be attempted again at the next scheduled interval
-- Failed tasks don't prevent other scheduled tasks from running
+* The error is logged to the `aposTaskLog` collection
+* The task will be attempted again at the next scheduled interval
+* Failed tasks don't prevent other scheduled tasks from running
 
 ### Best Practices
 
@@ -1342,14 +1358,14 @@ async task(argv) {
 **4. Keep tasks lightweight**
 
 Tasks that take a long time to complete can cause problems:
-- They may be terminated if they exceed timeout limits
-- They can delay other scheduled tasks
-- They consume server resources
+* They may be terminated if they exceed timeout limits
+* They can delay other scheduled tasks
+* They consume server resources
 
 For heavy operations, consider:
-- Breaking work into smaller chunks
-- Using batch processing
-- Running the task less frequently
+* Breaking work into smaller chunks
+* Using batch processing
+* Running the task less frequently
 
 **5. Test with actual site data**
 
@@ -1366,6 +1382,7 @@ node app product:sync --all-sites
 ### Common Task Patterns
 
 **Data Synchronization:**
+
 ```javascript
 'all-sites': {
   hourly: ['product:sync', 'inventory:update']
@@ -1373,6 +1390,7 @@ node app product:sync --all-sites
 ```
 
 **Scheduled Publishing:**
+
 ```javascript
 'all-sites': {
   hourly: ['scheduled-publishing:publish']
@@ -1380,6 +1398,7 @@ node app product:sync --all-sites
 ```
 
 **Cleanup and Maintenance:**
+
 ```javascript
 'all-sites': {
   daily: ['media:cleanup --older-than=90', 'draft:purge --older-than=30']
@@ -1387,6 +1406,7 @@ node app product:sync --all-sites
 ```
 
 **Analytics and Reporting:**
+
 ```javascript
 'dashboard': {
   daily: ['analytics:aggregate', 'report:email --recipients=team@example.com']
@@ -1394,6 +1414,7 @@ node app product:sync --all-sites
 ```
 
 **Cache Management:**
+
 ```javascript
 'all-sites': {
   hourly: ['cache:warm --pages=high-traffic']
@@ -1434,6 +1455,7 @@ In a multisite environment, each site has its own MongoDB database. This isolati
 **How database names are constructed:**
 
 Each site's database name is created by combining:
+
 1. Your `shortNamePrefix` (set in `backend/app.js`)
 2. The site's internal `_id` value (a unique identifier)
 
@@ -1442,9 +1464,9 @@ For example, if your prefix is `myproject-` and a site's `_id` is `company1`, th
 **Why not just use the shortname?**
 
 The internal `_id` value is used instead of the user-visible shortname because:
-- The `_id` never changes, even if the shortname is edited
-- It ensures database names remain stable throughout a site's lifetime
-- It prevents naming conflicts if shortnames are reused
+* The `_id` never changes, even if the shortname is edited
+* It ensures database names remain stable throughout a site's lifetime
+* It prevents naming conflicts if shortnames are reused
 
 **The dashboard database:**
 
@@ -1471,12 +1493,13 @@ node app mongo:mongo --site=company1.staging.your-domain.com
 ```
 
 **What you can do in the shell:**
-- Query and inspect collections
-- Run database commands
-- Debug data issues
-- Perform manual data corrections (use with caution)
+* Query and inspect collections
+* Run database commands
+* Debug data issues
+* Perform manual data corrections (use with caution)
 
 **Example queries:**
+
 ```javascript
 // List all collections
 show collections
@@ -1507,9 +1530,9 @@ node app mongo:mongodump --site=company1.localhost -- --out=/backups/company1
 ```
 
 **What this does:**
-- Exports all collections from the site's database
-- Creates BSON files that can be restored later
-- Useful for migrations, testing, or disaster recovery
+* Exports all collections from the site's database
+* Creates BSON files that can be restored later
+* Useful for migrations, testing, or disaster recovery
 
 **Default output location:**
 By default, `mongodump` creates a `dump/` directory in your current location containing the backup files.
@@ -1546,9 +1569,9 @@ node app mongo:mongorestore --site=company1.localhost -- --drop
 ```
 
 Without `--drop`, the restore operation adds documents to existing collections, which can result in:
-- Duplicate pieces and pages
-- Conflicting data
-- Unpredictable behavior
+* Duplicate pieces and pages
+* Conflicting data
+* Unpredictable behavior
 
 The `--drop` option tells `mongorestore` to drop each collection before restoring it, ensuring a clean restore.
 
@@ -1639,17 +1662,17 @@ node app mongo:mongorestore --site=company1.localhost -- --drop --gzip --dir=/tm
 **Database Isolation:**
 
 Each site's database is completely isolated:
-- Users in one site cannot access another site
-- Content in one site never appears in another
-- Database operations on one site don't affect others
+* Users in one site cannot access another site
+* Content in one site never appears in another
+* Database operations on one site don't affect others
 
 **Dashboard vs. Site Databases:**
 
 The dashboard database is special:
-- It contains the `site` pieces that define all sites
-- It stores dashboard-specific users and permissions
-- It does NOT contain content from individual sites
-- Restoring the dashboard database doesn't affect site content
+* It contains the `site` pieces that define all sites
+* It stores dashboard-specific users and permissions
+* It does NOT contain content from individual sites
+* Restoring the dashboard database doesn't affect site content
 
 **Backup Strategy:**
 
@@ -1663,10 +1686,10 @@ For production environments, establish a regular backup routine:
 **Production Considerations:**
 
 When working with production databases:
-- ⚠️ Always create a backup before restoring
-- ⚠️ Test restore procedures in a non-production environment first
-- ⚠️ Coordinate with your team before making database changes
-- ⚠️ Use `mongorestore` with `--drop` to prevent duplicate content
+* ⚠️ Always create a backup before restoring
+* ⚠️ Test restore procedures in a non-production environment first
+* ⚠️ Coordinate with your team before making database changes
+* ⚠️ Use `mongorestore` with `--drop` to prevent duplicate content
 
 ### Alternative: Direct MongoDB Access
 
@@ -1684,16 +1707,17 @@ mongosh "mongodb://username:password@host:port/myproject-company1"
 ```
 
 However, using the Apostrophe `mongo:*` tasks is recommended because:
-- They automatically determine the correct database name
-- They work consistently across all environments
-- They respect your MongoDB configuration from Apostrophe
-- They're easier to script and document
+* They automatically determine the correct database name
+* They work consistently across all environments
+* They respect your MongoDB configuration from Apostrophe
+* They're easier to script and document
 
 ### Troubleshooting
 
 **"Database not found" errors:**
 
 If you get an error that a database doesn't exist:
+
 1. Verify the site exists in the dashboard
 2. Check that you're using a valid hostname for the `--site` flag
 3. Confirm your `shortNamePrefix` matches what's configured in `app.js`
@@ -1701,15 +1725,15 @@ If you get an error that a database doesn't exist:
 **"Command not found: mongodump":**
 
 You need to install MongoDB Database Tools separately from MongoDB itself:
-- [Installation guide](https://docs.mongodb.com/database-tools/installation/installation-linux/)
-- These tools are not included with MongoDB by default in newer versions
+* [Installation guide](https://docs.mongodb.com/database-tools/installation/installation-linux/)
+* These tools are not included with MongoDB by default in newer versions
 
 **Permission errors:**
 
 Ensure your MongoDB user has appropriate permissions:
-- Read permissions for `mongodump`
-- Write permissions for `mongorestore`
-- Administrative permissions for database creation/dropping
+* Read permissions for `mongodump`
+* Write permissions for `mongorestore`
+* Administrative permissions for database creation/dropping
 
 ### Scripting Database Operations
 
@@ -1736,10 +1760,10 @@ echo "All backups complete in $BACKUP_DIR"
 ```
 
 This approach is useful for:
-- Regular backup schedules
-- Pre-deployment procedures
-- Disaster recovery planning
-- Environment synchronization
+* Regular backup schedules
+* Pre-deployment procedures
+* Disaster recovery planning
+* Environment synchronization
 
 ## 🚀 Pro Modules
 
@@ -1748,14 +1772,15 @@ This template includes ApostropheCMS Pro modules pre-installed and ready to use.
 ### 💎 Available Pro Modules
 
 #### 🔐 Advanced Permissions
+
 **Enterprise-grade access control for teams and organizations**
 
 Take control of your content with granular permissions that go far beyond basic user roles. Perfect for large teams, agencies, and organizations that need sophisticated access management.
 
-- **Advanced Permission Groups** - Create custom user groups with specific permissions
-- **Advanced Permissions** - Set fine-grained permissions at the document, field, and feature level
-- Control who can edit, publish, delete, and manage different types of content
-- Ideal for enterprise workflows with multiple stakeholders and approval processes
+* **Advanced Permission Groups** - Create custom user groups with specific permissions
+* **Advanced Permissions** - Set fine-grained permissions at the document, field, and feature level
+* Control who can edit, publish, delete, and manage different types of content
+* Ideal for enterprise workflows with multiple stakeholders and approval processes
 
 ```javascript
 '@apostrophecms-pro/advanced-permission-group': {},
@@ -1767,13 +1792,14 @@ Take control of your content with granular permissions that go far beyond basic 
 ---
 
 #### 🌍 Translation & Localization Suite
+
 **Automated translation and localization management for global content**
 
 While ApostropheCMS includes built-in content localization for managing multilingual sites, these Pro modules supercharge your international workflow with automated translation capabilities. Perfect for international businesses and organizations serving diverse audiences who need to scale their multilingual content efficiently.
 
-- **Automatic Translation** - AI-powered translation with support for DeepL, Google Translate, and Azure Translator
-- **Import/Export Translations** - Manage translation workflows with professional translators
-- Seamless integration with your existing content workflow
+* **Automatic Translation** - AI-powered translation with support for DeepL, Google Translate, and Azure Translator
+* **Import/Export Translations** - Manage translation workflows with professional translators
+* Seamless integration with your existing content workflow
 
 **Configuration**: These modules are automatically activated based on your environment variables. Set the appropriate API key for your preferred translation provider:
 
@@ -1795,15 +1821,16 @@ The template will automatically enable the appropriate translation modules and c
 ---
 
 #### 🎨 Visual Design & Customization
+
 **In-context design tools for real-time visual customization**
 
 Empower content editors and designers to customize the visual appearance of your site without touching code. Perfect for agencies, white-label solutions, and sites that need flexible theming capabilities.
 
-- **Palette** - In-context interface for changing CSS properties in real-time
-- Create custom color schemes, spacing, typography, and visual effects
-- Group controls into intuitive tabs and sections for organized editing
-- Support for CSS custom properties and media queries
-- Changes render instantly with browser-side caching for performance
+* **Palette** - In-context interface for changing CSS properties in real-time
+* Create custom color schemes, spacing, typography, and visual effects
+* Group controls into intuitive tabs and sections for organized editing
+* Support for CSS custom properties and media queries
+* Changes render instantly with browser-side caching for performance
 
 ```javascript
 '@apostrophecms-pro/palette': {}
@@ -1814,13 +1841,14 @@ Empower content editors and designers to customize the visual appearance of your
 ---
 
 #### 🔍 SEO & Performance Optimization
+
 **Automated SEO optimization for better search visibility**
 
 Enhance your content's search engine performance with intelligent optimization tools that work across all languages and content types.
 
-- **SEO Assistant** - AI-powered content optimization for search engines
-- Works seamlessly with multilingual content for comprehensive international SEO
-- Automated suggestions and improvements for better rankings
+* **SEO Assistant** - AI-powered content optimization for search engines
+* Works seamlessly with multilingual content for comprehensive international SEO
+* Automated suggestions and improvements for better rankings
 
 **Configuration**: The SEO Assistant is automatically activated when you provide an OpenAI API key:
 
@@ -1836,14 +1864,15 @@ The template will automatically enable the SEO Assistant modules and configure t
 ---
 
 #### 📚 Document Management & Versioning
+
 **Professional document lifecycle management**
 
 Maintain complete control over your content lifecycle with enterprise-grade versioning and template management. Essential for organizations with strict content governance requirements.
 
-- **Document Versions** - Track changes, compare revisions, and restore previous versions
-- **Document Template Library** - Create reusable templates for consistent content creation
-- Audit trails for compliance and accountability
-- Perfect for content teams with review and approval workflows
+* **Document Versions** - Track changes, compare revisions, and restore previous versions
+* **Document Template Library** - Create reusable templates for consistent content creation
+* Audit trails for compliance and accountability
+* Perfect for content teams with review and approval workflows
 
 ```javascript
 '@apostrophecms-pro/document-versions': {},
@@ -1855,15 +1884,16 @@ Maintain complete control over your content lifecycle with enterprise-grade vers
 ---
 
 #### 👥 User Registration & Management
+
 **Self-service user registration and account management**
 
 Enable public user registration and self-service account management for member sites, communities, and customer portals.
 
-- **Self-Service Signup** - Allow users to create their own accounts
-- Customizable registration forms and validation
-- Email verification and password reset flows
-- Integration with existing permission systems
-- Perfect for membership sites, customer portals, and community platforms
+* **Self-Service Signup** - Allow users to create their own accounts
+* Customizable registration forms and validation
+* Email verification and password reset flows
+* Integration with existing permission systems
+* Perfect for membership sites, customer portals, and community platforms
 
 ```javascript
 '@apostrophecms-pro/signup': {}
@@ -1890,22 +1920,22 @@ This project is more opinionated than some of our other starter kits and uses th
 This project provides the core ApostropheCMS widgets, plus seven additional custom widgets:
 
 **Layout Widgets:**
-- **rows-widget**: Adds rows with varying numbers of columns for responsive content layout
-- **grid-layout-widget**: Adds custom or predefined CSS grid-based layouts
+* **rows-widget**: Adds rows with varying numbers of columns for responsive content layout
+* **grid-layout-widget**: Adds custom or predefined CSS grid-based layouts
 
 **Content Widgets:**
-- **hero-widget**: A customizable hero section with options for color gradient, image, or video backgrounds
-- **slideshow-widget**: A customizable slideshow widget powered by Swiper.js
-- **accordion-widget**: Adds an accordion for organizing content into collapsible sections
-- **card-widget**: Allows for the creation of multiple different customizable card types
-- **link-widget**: Adds links that can be styled as text or a highly customizable button
+* **hero-widget**: A customizable hero section with options for color gradient, image, or video backgrounds
+* **slideshow-widget**: A customizable slideshow widget powered by Swiper.js
+* **accordion-widget**: Adds an accordion for organizing content into collapsible sections
+* **card-widget**: Allows for the creation of multiple different customizable card types
+* **link-widget**: Adds links that can be styled as text or a highly customizable button
 
 ### Pieces
 
 This project creates two piece types:
 
-- **Article Piece**: For creating content pieces like blog posts or news articles
-- **Author Piece**: Used in relationship with article pieces to attribute content
+* **Article Piece**: For creating content pieces like blog posts or news articles
+* **Author Piece**: Used in relationship with article pieces to attribute content
 
 ### Pages
 
@@ -1913,17 +1943,17 @@ This project creates core `default` and `@apostrophecms/home-page` pages, plus t
 
 **Home Page Layouts:**
 The home page has three potential layouts selected from the utility menus on the right side of the page manager:
-- **Minimal**: Inherits the header and footer components added to all project pages, with a single area that can take any of the project widgets
-- **Foundation**: Adds a hero section at the top of the page
-- **Showcase**: Adds a slideshow section
+* **Minimal**: Inherits the header and footer components added to all project pages, with a single area that can take any of the project widgets
+* **Foundation**: Adds a hero section at the top of the page
+* **Showcase**: Adds a slideshow section
 
 **Default Page:**
 The default page has a layout identical to the 'Minimal' home page layout.
 
 **Piece-Type Pages:**
 Piece-type pages in ApostropheCMS projects are used to either display multiple pieces (`index.html`) or individual pieces (`show.html`). This project has both types:
-- **Article Index Page**: Maps to the `ArticleIndexPage.astro` template, demonstrating pagination handling
-- **Article Show Page**: Maps to the `ArticleShowPage.astro` template
+* **Article Index Page**: Maps to the `ArticleIndexPage.astro` template, demonstrating pagination handling
+* **Article Show Page**: Maps to the `ArticleShowPage.astro` template
 
 Both page types have three layouts to select from, with three or four additional areas for adding widgets with content before and after the piece content.
 
@@ -1940,6 +1970,7 @@ These helper functions are designed to work with images in your Astro frontend t
 ### Working with Image Relationships
 
 When you have a relationship field to `@apostrophecms/image` in your content type, you'll typically need to:
+
 1. Get the image URL (potentially at different sizes for responsive images)
 2. Handle focal points if configured
 3. Get the image dimensions including any cropping that should be applied
@@ -1994,12 +2025,12 @@ If you set a crop region for an image in the ApostropheCMS Admin UI, all the hel
 **Size Variants**
 
 The default size variants are:
-- `one-sixth` (190×350px)
-- `one-third` (380×700px)
-- `one-half` (570×700px)
-- `two-thirds` (760×760px)
-- `full` (1140×1140px)
-- `max` (1600×1600px)
+* `one-sixth` (190×350px)
+* `one-third` (380×700px)
+* `one-half` (570×700px)
+* `two-thirds` (760×760px)
+* `full` (1140×1140px)
+* `max` (1600×1600px)
 
 These sizes will be used to generate the srcset and can be selected by name for the `getAttachmentUrl()` method:
 
@@ -2045,6 +2076,7 @@ See the [attachment module documentation](https://docs.apostrophecms.org/referen
 ### Working with Focal Points
 
 When using focal points set in the ApostropheCMS admin UI, you'll need to:
+
 1. Use `object-position` with the focal point value
 2. Set appropriate Bulma image classes (like `is-fullwidth`)
 
@@ -2066,11 +2098,11 @@ The `getFocalPoint()` function returns coordinates in the format "X% Y%" (e.g., 
 ### Core Functions Reference
 
 Key functions available (see JSDoc comments in source for detailed documentation):
-- `getAttachmentUrl(attachmentObject, options?)`: Get URL for an image with optional size (defaults to 'full')
-- `getAttachmentSrcset(attachmentObject, options?)`: Generate responsive srcset string
-- `getWidth(imageObject)`: Get image width, respecting crops
-- `getHeight(imageObject)`: Get image height, respecting crops
-- `getFocalPoint(attachmentObject, defaultValue?)`: Get focal point coordinates for styling
+* `getAttachmentUrl(attachmentObject, options?)`: Get URL for an image with optional size (defaults to 'full')
+* `getAttachmentSrcset(attachmentObject, options?)`: Generate responsive srcset string
+* `getWidth(imageObject)`: Get image width, respecting crops
+* `getHeight(imageObject)`: Get image height, respecting crops
+* `getFocalPoint(attachmentObject, defaultValue?)`: Get focal point coordinates for styling
 
 ---
 
@@ -2162,9 +2194,9 @@ You can consult the [ApostropheCMS hosting](https://docs.apostrophecms.org/guide
 
 The main scripts for the Astro project located in the frontend folder are:
 
-- **`dev`** - Start Astro development server
-- **`build`** - Build for production
-- **`preview`** - Preview production build locally
+* **`dev`** - Start Astro development server
+* **`build`** - Build for production
+* **`preview`** - Preview production build locally
 
 Run the `build` script before starting the server in preview mode. The remainder of the scripts are for deployment and may need to be altered to fit your hosting solution.
 
@@ -2175,23 +2207,23 @@ Run the `build` script before starting the server in preview mode. The remainder
 ## 📚 Additional Resources
 
 **Detailed Documentation:**
-- [Assembly Essentials Starter Kit](https://github.com/apostrophecms/starter-kit-assembly-essentials) - Backend multisite architecture details
-- [Astro Essentials Starter Kit](https://github.com/apostrophecms/starter-kit-astro-essentials) - Frontend integration and image helpers
-- [Apollo Starter Kit](https://github.com/apostrophecms/apollo) - Open source version without Assembly or Pro features
+* [Assembly Essentials Starter Kit](https://github.com/apostrophecms/starter-kit-assembly-essentials) - Backend multisite architecture details
+* [Astro Essentials Starter Kit](https://github.com/apostrophecms/starter-kit-astro-essentials) - Frontend integration and image helpers
+* [Apollo Starter Kit](https://github.com/apostrophecms/apollo) - Open source version without Assembly or Pro features
 
 **Official Documentation:**
-- [ApostropheCMS Documentation](https://docs.apostrophecms.org/) - Complete CMS guide
-- [Astro Documentation](https://docs.astro.build/) - Astro framework guide
-- [apostrophe-astro Package](https://github.com/apostrophecms/apostrophe-astro) - Integration package details
-- [Pro Extensions](https://apostrophecms.com/extensions?license=pro) - Pro module documentation
+* [ApostropheCMS Documentation](https://docs.apostrophecms.org/) - Complete CMS guide
+* [Astro Documentation](https://docs.astro.build/) - Astro framework guide
+* [apostrophe-astro Package](https://github.com/apostrophecms/apostrophe-astro) - Integration package details
+* [Pro Extensions](https://apostrophecms.com/extensions?license=pro) - Pro module documentation
 
 **Community & Support:**
-- **Community Support**: Join our [Discord community](https://discord.com/invite/HwntQpADJr) for help from other developers
-- **Professional Support**: Dedicated support packages available - [Contact us](https://apostrophecms.com/contact-us) to learn more
-- **Training**: Professional training and consultation services available
+* **Community Support**: Join our [Discord community](https://discord.com/invite/HwntQpADJr) for help from other developers
+* **Professional Support**: Dedicated support packages available - [Contact us](https://apostrophecms.com/contact-us) to learn more
+* **Training**: Professional training and consultation services available
 
 **Tutorials:**
-- [Building with Apollo + Astro](https://docs.apostrophecms.org/tutorials/astro/apostrophecms-and-astro.html) - Step-by-step site building
+* [Building with Apollo + Astro](https://docs.apostrophecms.org/tutorials/astro/apostrophecms-and-astro.html) - Step-by-step site building
 
 ---
 

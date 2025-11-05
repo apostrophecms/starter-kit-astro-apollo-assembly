@@ -1,152 +1,44 @@
-import apostrophe from 'apostrophe';
+import multisite from '@apostrophecms-pro/multisite';
+import sites from './sites/index.js';
+import dashboard from './dashboard/index.js';
 
-// Helper function to get translation and SEO modules
-const getTranslationAndSeoModules = () => {
-  const entries = [];
-
-  // NOTE: if you set one of the environment variable below
-  // please restart the backend server with APOS_DEV=1
-  // It will rebuild the admin UI with the new components
-  const hasOpenAI = process.env.OPENAI_API_KEY;
-  const deepl = process.env.APOS_DEEPL_API_SECRET;
-  const google = process.env.APOS_GOOGLE_API_SECRET;
-  const azure = process.env.APOS_AZURE_API_SECRET;
-
-  const translationEnabled = !!(deepl || google || azure);
-
-  // More explicit approach for provider selection
-  let translationProvider = null;
-  if (deepl) {
-    translationProvider = 'deepl';
-  } else if (google) {
-    translationProvider = 'google';
-  } else if (azure) {
-    translationProvider = 'azure';
-  }
-
-  if (hasOpenAI || translationEnabled) {
-    // Always comes first if any of the modules are present
-    entries.push([
-      '@apostrophecms-pro/automatic-translation',
-      {
-        options: {
-          enabled: translationEnabled,
-          ...(translationProvider && { provider: translationProvider })
-        }
-      }
-    ]);
-
-    if (translationProvider) {
-      entries.push([
-        `@apostrophecms-pro/automatic-translation-${translationProvider}`,
-        {}
-      ]);
-    }
-
-    // Only add import-export-translation when automatic translation
-    // is disabled (manual mode)
-    if (!translationEnabled) {
-      entries.push([ '@apostrophecms-pro/import-export-translation', {} ]);
-    }
-  }
-
-  if (hasOpenAI) {
-    entries.push([
-      '@apostrophecms-pro/seo-assistant',
-      {
-        options: {
-          provider: 'openai'
-        }
-      }
-    ]);
-
-    entries.push([ '@apostrophecms-pro/seo-assistant-openai', {} ]);
-  }
-
-  return Object.fromEntries(entries);
-};
-
-export default apostrophe({
+export default await multisite({
   root: import.meta,
-  shortName: 'apollo-pro',
-  baseUrl: process.env.APOS_BASE_URL || 'http://localhost:4321',
-  modules: {
-    // Apostrophe module configuration
-    // *******************************
-    //
-    // Most configuration occurs in the respective modules' directories.
-    // See modules/@apostrophecms/page/index.js for an example.
-    //
-    // Any modules that are not present by default in Apostrophe must at least
-    // have a minimal configuration here to turn them on: `moduleName: {}`
 
-    // *********************************
-    '@apostrophecms/vite': {},
+  // Port to listen on, or set the `PORT` env var (which Heroku will do for you)
+  port: 3000,
 
-    '@apostrophecms/express': {
-      options: {
-        session: {
-          secret: 'CHANGEME'
-        }
-      }
-    },
+  // Change to a fallback prefix more appropriate so you can have multiple unrelated
+  // multisite projects
+  shortNamePrefix: process.env.SHORTNAME_PREFIX || 'apollo-assembly-',
 
-    // `className` options set custom CSS classes for Apostrophe core widgets.
-    '@apostrophecms/rich-text-widget': {},
-    '@apostrophecms/image-widget': {},
-    '@apostrophecms/video-widget': {},
-    '@apostrophecms/asset': {},
+  // MongoDB URL for database connection. If you have multiple physical
+  // servers then you MUST configure this to a SHARED server (which
+  // may be a replica set). Can be set via MONGODB_URL env var
+  mongodbUrl: process.env.APOS_MONGODB_URI || 'mongodb://localhost:27017',
 
-    // helpers
-    // Adds OpenGraph tags
-    '@apostrophecms/open-graph': {},
-    // Adds SEO Fields
-    '@apostrophecms/seo': {},
-    // Adds a page favicon
-    '@apostrophecms/favicon': {},
+  // Session secret. Please use a unique string.
+  sessionSecret: 'CHANGEME',
 
-    // pieces
-    article: {},
-    author: {},
+  // This is our default HTTP Keep-Alive time, in ms, for reuse of
+  // connections. Should be longer than that of the reverse proxy
+  // (nginx: 75 seconds, AWS ELB: 60 seconds, etc)
+  keepAliveTimeout: 100 * 1000,
 
-    // pages
-    'default-page': {},
-    'article-page': {},
+  // Set to true to proactively initialize all site instances during startup,
+  // before the server begins listening for traffic. Can also be an array
+  // of site IDs or shortNames to prewarm only specific sites.
+  // Reduces initial request latency for prewarmed sites. Defaults to false.
+  prewarmSites: false,
 
-    // widgets
-    'grid-layout-widget': {},
-    'accordion-widget': {},
-    'card-widget': {},
-    'hero-widget': {},
-    'link-widget': {},
-    'slideshow-widget': {},
-    'rows-widget': {},
+  // Grace period (in milliseconds) before destroying an old site instance
+  // after a zero-downtime reload completes. Defaults to 60000 (1 minute).
+  oldInstanceGracePeriod: 60000,
 
-    /*
-    ==========================
-    OPTIONAL PRO MODULES
-    Some modules require options, such as credentials or provider config.
-    ==========================
-    */
-
-    /*
-      ℹ️ For Advanced Permissions
-    */
-    '@apostrophecms-pro/advanced-permission-group': {},
-    '@apostrophecms-pro/advanced-permission': {},
-
-    /*
-      ℹ️ The `@apostrophecms-pro/automatic-translation` module is needed
-        for both SEO Assistant and Import Export Translations modules
-      ℹ️ The provider will be set automatically by the environment variable
-        and the helper method above. See the repo README for details
-      ℹ️ The `@apostrophecms-pro/import-export-translation` doesn't require a key
-
-    */
-    ...getTranslationAndSeoModules(),
-
-    '@apostrophecms-pro/document-versions': {},
-    '@apostrophecms-pro/doc-template-library': {},
-    '@apostrophecms-pro/palette': {}
-  }
+  orphan(req, res) {
+    console.error(`method: ${req.method} url: ${req.url} host: ${req.host} host header: ${ req.headers.host}`);
+    return res.status(404).send('not found');
+  },
+  sites,
+  dashboard
 });

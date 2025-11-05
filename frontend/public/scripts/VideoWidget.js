@@ -100,6 +100,9 @@ class VideoWidget extends HTMLElement {
    * Updates video height to maintain aspect ratio based on current width
    */
   resizeVideo() {
+    if (!document.body.contains(this) || !this.checkVisibility()) {
+      return setTimeout(() => this.resizeVideo(), 50);
+    }
     const aspectRatio = this.result.height / this.result.width;
     this.canvasEl.style.height = (aspectRatio * this.canvasEl.offsetWidth) + 'px';
   }
