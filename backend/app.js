@@ -31,19 +31,9 @@ export default await multisite({
   // Reduces initial request latency for prewarmed sites. Defaults to false.
   prewarmSites: false,
 
-<<<<<<< HEAD
   // Grace period (in milliseconds) before destroying an old site instance
   // after a zero-downtime reload completes. Defaults to 60000 (1 minute).
   oldInstanceGracePeriod: 60000,
-=======
-    // widgets
-
-    'accordion-widget': {},
-    'card-widget': {},
-    'hero-widget': {},
-    'link-widget': {},
-    'slideshow-widget': {},
->>>>>>> layout-beta
 
   orphan(req, res) {
     console.error(`method: ${req.method} url: ${req.url} host: ${req.host} host header: ${ req.headers.host}`);
