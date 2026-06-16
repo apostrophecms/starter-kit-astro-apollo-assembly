@@ -1,3 +1,12 @@
+> [!WARNING]
+> **This repository is deprecated and no longer maintained.**
+>
+> We recommend migrating to our actively maintained ApostropheCMS Assembly starter kit.
+> [Contact support](https://apostrophecms.com/contact-us) for more information about multisite projects using ApostropheCMS + Astro.
+>
+> - **[Assembly Essentials](https://github.com/apostrophecms/starter-kit-assembly-essentials)**: a clean, minimal starting point for multisite ApostropheCMS projects.
+>- You can also read more about the architecture of the standalone [Essentials](https://apostrophecms.com/docs/guide/apostrophe-standalone-essentials-overview.html) project, a clean, minimal starting point for standalone ApostropheCMS projects
+
 # Apollo Starter Kit for ApostropheCMS Assembly + Astro Integration (Pro Edition)
 
 **A complete multisite platform with modern performance, streamlined development, and an editor experience your teams will enjoy using.**
