@@ -20,7 +20,7 @@
     "url": "https://github.com/apostrophecms/starter-kit-astro-apollo-assembly"
   },
   "dependencies": {
-    "@apostrophecms/apostrophe-astro": "^1.7.0",
+    "@apostrophecms/apostrophe-astro": "github:apostrophecms/apostrophe#main&path:packages/apostrophe-astro",
     "@astrojs/node": "^9.0.0",
     "@fortawesome/fontawesome-svg-core": "^6.6.0",
     "@fortawesome/free-brands-svg-icons": "^6.6.0",
@@ -30,7 +30,7 @@
     "astro": "^5.0.9",
     "bulma": "^1.0.2",
     "dayjs": "^1.11.10",
-    "postcss-viewport-to-container-toggle": "^2.0.1",
+    "postcss-viewport-to-container-toggle": "github:apostrophecms/apostrophe#main&path:packages/postcss-viewport-to-container-toggle",
     "vite": "^5.0.7"
   },
   "devDependencies": {
